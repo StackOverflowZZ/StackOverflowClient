@@ -7,8 +7,9 @@
  */
 var request = function($http, url, method, successCallback) {
     $http({
+        url: url,
         method: method,
-        url: url
+        withCredentials: true
     }).then(successCallback,
         function errorCallback(response) {
         // TODO : Error management, create a flash function on views.

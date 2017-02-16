@@ -125,11 +125,18 @@ angular.module("ngLocale", [], ["$provide", function($provide) {
 }]);
 
 var translations_fr = {
+
     MENU: {
         HOME: 'Accueil',
         USER: {
-            SIGNIN: 'Sign in',
-            SIGNUP: 'Sign up'
+            SIGNIN: 'Se connecter',
+            SIGNUP: 'S\'inscrire'
         }
-    }
+    },
+    QUESTION: {
+        HOME: {
+            TITLE: 'Questions posées',
+            NEW: 'Nouvelle question'
+        }
+    },
 };

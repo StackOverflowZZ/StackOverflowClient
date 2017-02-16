@@ -149,5 +149,11 @@ var translations_en = {
             SIGNIN: 'Sign in',
             SIGNUP: 'Sign up'
         }
+    },
+    QUESTION: {
+        HOME: {
+            TITLE: "Questions asked",
+            NEW: "New question"
+        }
     }
 };

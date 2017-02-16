@@ -13,7 +13,7 @@ app.config(
         function($httpProvider, $routeProvider, $locationProvider, $translateProvider) {
 
         // httpProvider
-        $httpProvider.defaults.useXDomain = true;
+        $httpProvider.defaults.useXDomain = true;               // Enable cross domain calls
         delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
         // locationProvider

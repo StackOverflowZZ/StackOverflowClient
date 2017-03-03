@@ -1,20 +1,32 @@
 var app = angular.module('StackOverflowClient',
     [
         'pascalprecht.translate',
-        'ngRoute'
-    ]);
+        'ngRoute',
+        'ngResource'
+    ])
+    .constant('API_URL', 'http://localhost:8080');
 
 app.config(
     [
         '$httpProvider',
         '$routeProvider',
+        '$resourceProvider',
         '$locationProvider',
         '$translateProvider',
-        function($httpProvider, $routeProvider, $locationProvider, $translateProvider) {
+        function($httpProvider, $routeProvider, $resourceProvider, $locationProvider, $translateProvider) {
 
         // httpProvider
         $httpProvider.defaults.useXDomain = true;               // Enable cross domain calls
         delete $httpProvider.defaults.headers.common['X-Requested-With'];
+
+        // resourceProvider
+        $resourceProvider.defaults.actions = {
+            create:     {method: 'POST'},
+            get:        {method: 'GET'},
+            getAll:     {method: 'GET', isArray: true},
+            update:     {method: 'PUT'},
+            delete:     {method: 'DELETE'}
+        };
 
         // locationProvider
         $locationProvider.hashPrefix("!");

@@ -1,10 +1,17 @@
-app.controller("QuestionController", function($scope, $http){
-    $scope.yolo = "Hello World !";
-    $scope.inputValue= "";
+app.controller("QuestionController", function($scope, $resource, API_URL, Tag){
 
-    request($http, "http://localhost:8080", 'GET', function(response) {
-        $scope.questions = response.data;
+    var Questions = $resource(API_URL + '/question/index');
+    Questions.getAll(function(questions) {
+
+        questions.forEach(function(question) {
+            question.tags.forEach(function(tag, index) {
+                Tag.get({tagId:tag.id}, function(t) {
+                    question.tags[index] = t;
+                });
+            });
+        });
+
+        $scope.questions = questions;
     });
-
 });
 

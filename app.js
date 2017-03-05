@@ -29,8 +29,10 @@ app.config(
         };
 
         // locationProvider
-        $locationProvider.hashPrefix("!");
-        //$locationProvider.html5Mode(true);
+        $locationProvider.html5Mode({
+            enabled: true,
+            requireBase: false
+        });
 
         // routeProvider
         $routeProvider
@@ -41,6 +43,10 @@ app.config(
             .when("/questions", {
                 templateUrl: 'views/question/index.html',
                 controller: 'QuestionController'
+            })
+            .when("/login", {
+                templateUrl: 'views/user/auth.html',
+                controller: 'UserController'
             })
             .otherwise({
                 templateUrl : "views/errors/error404.html"

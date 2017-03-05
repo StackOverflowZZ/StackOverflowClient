@@ -155,5 +155,13 @@ var translations_en = {
             TITLE: "Questions asked",
             NEW: "New question"
         }
+    },
+    LOGIN: {
+        TITLE: 'Account login',
+        FIELD: {
+            USERNAME: 'Enter your username',
+            PASSWORD: 'Entrer your password',
+            SUBMIT: 'Sign in'
+        }
     }
 };

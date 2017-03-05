@@ -139,4 +139,12 @@ var translations_fr = {
             NEW: 'Nouvelle question'
         }
     },
+    LOGIN: {
+        TITLE: 'Connexion à un compte',
+        FIELD: {
+            USERNAME: 'Entrez votre nom d\'utilisateur',
+            PASSWORD: 'Entrez votre mot de passe',
+            SUBMIT: 'Sign in'
+        }
+    }
 };

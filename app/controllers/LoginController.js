@@ -10,13 +10,11 @@ app.controller("LoginController", function($scope, $location, $route, AuthServic
         // Launch login process
         AuthService.login(credentials).then(function (username) {
 
-            //$rootScope.$broadcast(AUTH_EVENTS.loginSuccess);      // TODO : ??
+            // Define current user
             $scope.setUsername(username);
 
             // Redirect to home
             $location.path('/');
-        }, function() {
-            //$rootScope.$broadcast(AUTH_EVENTS.loginFailed);
         });
     };
 

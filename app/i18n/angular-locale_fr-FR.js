@@ -138,6 +138,14 @@ var translations_fr = {
         HOME: {
             TITLE: 'Questions posées',
             NEW: 'Nouvelle question'
+        },
+        CREATE: {
+            TITLE: 'Nouvelle question',
+            FIELDS: {
+                TITLE: 'Titre de la question',
+                TEXT: 'Décrivez votre question ici...'
+            },
+            NEW: 'Ajouter une question'
         }
     },
     LOGIN: {

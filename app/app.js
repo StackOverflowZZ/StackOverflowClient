@@ -40,10 +40,10 @@ app.config(
                 templateUrl: 'views/question/index.html',
                 controller: 'QuestionController'
             })
-            .when("/questions", {
-                templateUrl: 'views/question/index.html',
+            .when("/question/add", {
+                templateUrl: 'views/question/create.html',
                 controller: 'QuestionController'
-            })
+            } )
             .when("/login", {
                 templateUrl: 'views/user/auth.html',
                 controller: 'LoginController'

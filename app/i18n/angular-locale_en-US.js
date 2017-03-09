@@ -153,15 +153,23 @@ var translations_en = {
     },
     QUESTION: {
         HOME: {
-            TITLE: "Questions asked",
-            NEW: "New question"
+            TITLE: 'Questions asked',
+            NEW: 'New question'
+        },
+        CREATE: {
+            TITLE: 'Titre de la question',
+            FIELDS: {
+                TITLE: 'Question title',
+                TEXT: 'Describe your question here...'
+            },
+            NEW: 'Add a new question'
         }
     },
     LOGIN: {
         TITLE: 'Account login',
         FIELD: {
             USERNAME: 'Enter your username',
-            PASSWORD: 'Entrer your password',
+            PASSWORD: 'Enter your password',
             SUBMIT: 'Sign in'
         }
     }

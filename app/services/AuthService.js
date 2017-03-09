@@ -24,8 +24,11 @@ app.factory('AuthService', function ($http, Session, API_URL) {
         return $http
             .post(API_URL + '/api/login', credentials)
             .then(function success(response) {
+
+                // Create the session
                 Session.create(response.data.username, response.data.roles,
                     response.data.access_token, response.data.refresh_token);
+
                 return response.data.username;        // TODO return something ?
             }, function error(response) {
                 alert('An error occurred : ' + response);

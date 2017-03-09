@@ -6,10 +6,15 @@ app.service('Session', function () {
         this.accessToken = accessToken;
         this.refreshToken = refreshToken;
     };
+
     this.destroy = function () {
         this.username = null;
         this.roles = null;
         this.accessToken = null;
         this.refreshToken = null;
     };
+
+    this.getAccessToken = function() {
+        return this.accessToken;
+    }
 });

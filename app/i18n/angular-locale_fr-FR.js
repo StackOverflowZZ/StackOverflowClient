@@ -130,7 +130,8 @@ var translations_fr = {
         HOME: 'Accueil',
         USER: {
             SIGNIN: 'Se connecter',
-            SIGNUP: 'S\'inscrire'
+            SIGNUP: 'S\'inscrire',
+            SIGNOUT: 'Se déconnecter'
         }
     },
     QUESTION: {
@@ -144,7 +145,7 @@ var translations_fr = {
         FIELD: {
             USERNAME: 'Entrez votre nom d\'utilisateur',
             PASSWORD: 'Entrez votre mot de passe',
-            SUBMIT: 'Sign in'
+            SUBMIT: 'Connexion'
         }
     }
 };

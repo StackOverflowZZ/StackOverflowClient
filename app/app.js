@@ -3,8 +3,7 @@ var app = angular.module('StackOverflowClient',
         'pascalprecht.translate',
         'ngRoute',
         'ngResource'
-    ])
-    .constant('API_URL', 'http://localhost:8080');
+    ]);
 
 app.config(
     [
@@ -18,6 +17,7 @@ app.config(
         // httpProvider
         $httpProvider.defaults.useXDomain = true;               // Enable cross domain calls
         delete $httpProvider.defaults.headers.common['X-Requested-With'];
+
 
         // resourceProvider
         $resourceProvider.defaults.actions = {
@@ -46,7 +46,7 @@ app.config(
             })
             .when("/login", {
                 templateUrl: 'views/user/auth.html',
-                controller: 'UserController'
+                controller: 'LoginController'
             })
             .otherwise({
                 templateUrl : "views/errors/error404.html"
@@ -60,9 +60,5 @@ app.config(
     }]
 );
 
-/*
-app.controller('Ctrl', function ($scope, $translate) {
-    $scope.changeLanguage = function (key) {
-        $translate.use(key);
-    };
-});*/
+/** Constants */
+app.constant('API_URL', 'http://localhost:8080');

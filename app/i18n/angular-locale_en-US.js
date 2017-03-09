@@ -147,7 +147,8 @@ var translations_en = {
         HOME: 'Home',
         USER: {
             SIGNIN: 'Sign in',
-            SIGNUP: 'Sign up'
+            SIGNUP: 'Sign up',
+            SIGNOUT: 'Sign out'
         }
     },
     QUESTION: {

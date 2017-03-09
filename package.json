@@ -1,0 +1,16 @@
+{
+    "name": "StackOverflowClient",
+    "version": "1.0.0",
+    "description": "Front-end application for our StackOverflow-like application",
+    "dependencies": {
+        "express": "*"
+    },
+    "scripts": {
+        "start": "node server.js"
+    },
+    "main": "server.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/StackOverflowZZ/StackOverflowClient"
+    }
+}

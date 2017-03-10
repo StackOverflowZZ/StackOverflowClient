@@ -163,6 +163,9 @@ var translations_en = {
                 TEXT: 'Describe your question here...'
             },
             NEW: 'Add a new question'
+        },
+        SHOW: {
+            RESOLVED: 'Resolved'
         }
     },
     LOGIN: {
@@ -172,5 +175,7 @@ var translations_en = {
             PASSWORD: 'Enter your password',
             SUBMIT: 'Sign in'
         }
-    }
+    },
+    CREATED: 'Created :',
+    EDITED: 'Edited'
 };

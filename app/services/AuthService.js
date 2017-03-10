@@ -5,7 +5,7 @@ app.constant('USER_ROLES', {
     admin: 'ROLE_ADMIN',
     user: 'ROLE_USER',
     anonymous: 'ROLE_ANONYMOUS'
-})
+});
 
 /**
  * Manages the method relatives to authentication and authorization.

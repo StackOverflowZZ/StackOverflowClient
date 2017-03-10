@@ -146,6 +146,9 @@ var translations_fr = {
                 TEXT: 'Décrivez votre question ici...'
             },
             NEW: 'Ajouter une question'
+        },
+        SHOW: {
+            RESOLVED: 'Résolue'
         }
     },
     LOGIN: {
@@ -155,5 +158,7 @@ var translations_fr = {
             PASSWORD: 'Entrez votre mot de passe',
             SUBMIT: 'Connexion'
         }
-    }
+    },
+    CREATED: 'Créée :',
+    EDITED: 'Editée :'
 };

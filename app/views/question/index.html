@@ -1,4 +1,4 @@
-<div class="container"><!-- TODO - Change title -->
+<div class="container" data-ng-controller="QuestionController" data-ng-init="getQuestions()"><!-- TODO - Change title -->
     <div class="jumbotron">
         <h1 class="text-center">
             {{ 'QUESTION.HOME.TITLE' | translate }}</h1>
@@ -30,7 +30,7 @@
                         <h4><strong>{{q.vote}}</strong></h4>
                     </td>
                     <td class="text-center">
-                        <h4><a ng-click="show(q.id)">{{q.title}}</a></h4>
+                        <h4><a href="/question/{{q.id}}">{{q.title}}</a></h4>
                     </td>
                     <td class="text-center">
                         <h4 style="display:inline-block;" ng-repeat="tag in q.tags">

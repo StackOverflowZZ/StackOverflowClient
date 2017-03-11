@@ -1,34 +1,8 @@
-app.controller("QuestionController", function($scope, $resource, $routeParams, API_URL, Question, User, Session, Tag) {
-
-    // Define Question resource
-    var Questions = $resource(API_URL + '/question/:questionId', {questionId: '@id'},
-    {
-        create: {
-            method: 'POST',
-            headers: {
-                'Authorization': 'Bearer ' + Session.getAccessToken(),
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            transformRequest: function(data) {
-                var key, result = [], response;
-                if(typeof data == "string") {
-                    response = data;
-                } else {
-                    for (key in data) {
-                        if (data.hasOwnProperty(key)) {
-                            result.push(encodeURIComponent(key) + "=" + encodeURIComponent(data[key]));
-                        }
-                    }
-                    response = result.join("&");
-                }
-                return response;
-            }
-        }
-    });
+app.controller("QuestionController", function($scope, $resource, $http, $routeParams, API_URL, Question, User, Session, Tag) {
 
     // Get all questions for index.
     $scope.getQuestions = function() {
-        Questions.getAll(function(questions) {
+        Question.getAll(function(questions) {
 
             questions.forEach(function(question) {
                 question.tags.forEach(function(tag, index) {
@@ -48,10 +22,16 @@ app.controller("QuestionController", function($scope, $resource, $routeParams, A
         // TODO : to finish
 
         // Post to the endpoint
-        Questions.create(question, function(response) {
+        Question.create(question, function () {
+            alert("Coucou");
+        });
+
+
+
+        /*Questions.create    ({question: question}, function(response) {
             // TODO : add redirect
             alert("Question posted !");
-        })
+        })*/
 
     };
 
@@ -68,6 +48,8 @@ app.controller("QuestionController", function($scope, $resource, $routeParams, A
             });
 
             // Get comments
+
+
 
             // Get answers
         });

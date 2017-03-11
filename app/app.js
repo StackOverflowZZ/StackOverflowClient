@@ -16,8 +16,8 @@ app.config(
 
         // httpProvider
         $httpProvider.defaults.useXDomain = true;               // Enable cross domain calls
+        $httpProvider.defaults.headers.put['Content-Type'] = 'text/json';
         delete $httpProvider.defaults.headers.common['X-Requested-With'];
-
 
         // resourceProvider
         $resourceProvider.defaults.actions = {
@@ -40,14 +40,14 @@ app.config(
                 templateUrl: 'views/question/index.html',
                 controller: 'QuestionController'
             })
-            .when("/question/:id", {
+            .when("/question/get/:id", {
                 templateUrl: 'views/question/show.html',
                 controller: 'QuestionController'
             })
             .when("/question/add", {
                 templateUrl: 'views/question/create.html',
                 controller: 'QuestionController'
-            } )
+            })
             .when("/login", {
                 templateUrl: 'views/user/auth.html',
                 controller: 'LoginController'

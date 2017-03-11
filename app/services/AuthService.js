@@ -29,6 +29,9 @@ app.factory('AuthService', function ($http, Session, API_URL) {
                 Session.create(response.data.username, response.data.roles,
                     response.data.access_token, response.data.refresh_token);
 
+                // Assign http header
+                $http.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.access_token;
+
                 return response.data.username;        // TODO return something ?
             }, function error(response) {
                 alert('An error occurred : ' + response);

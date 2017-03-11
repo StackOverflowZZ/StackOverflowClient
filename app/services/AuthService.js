@@ -40,6 +40,8 @@ app.factory('AuthService', function ($http, Session, API_URL) {
 
     authService.logout = function () {
         Session.destroy();
+
+        $http.defaults.headers.common['Authorization'] = '';
     };
 
     /**

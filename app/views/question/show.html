@@ -59,16 +59,16 @@
             {{ 'EDITED' | translate }} {{ question.edited | date:"dd-MM-yyyy HH:mm:ss" }}<br />
         </div>
     </div>
-<!--
+
     <div class="comments">
-        <g:each in="${question.comments}" var="c">
+        <div ng-repeat="comment in question.comments">
             <tr>
                 <td>
-                    <g:render template="/comment/displayComment" model="['comment':c]" />
+                    <comment comment="comments[comment.id]"></comment>
                 </td>
             </tr>
             <hr />
-        </g:each>
+        </div>
     </div>
 <!--
     <g:form controller="comment" action="addComment" method="post" >

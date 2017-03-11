@@ -1,4 +1,6 @@
-app.controller("QuestionController", function($scope, $resource, $http, $routeParams, API_URL, Question, User, Session, Tag) {
+app.controller("QuestionController",
+    function($scope, $resource, $routeParams, API_URL,
+             Question, Comment, User, Session, Tag) {
 
     // Get all questions for index.
     $scope.getQuestions = function() {
@@ -19,19 +21,10 @@ app.controller("QuestionController", function($scope, $resource, $http, $routePa
     // Create a question
     $scope.createQuestion = function(question) {
 
-        // TODO : to finish
-
         // Post to the endpoint
         Question.create(question, function () {
-            alert("Coucou");
+            $location.path('/');
         });
-
-
-
-        /*Questions.create    ({question: question}, function(response) {
-            // TODO : add redirect
-            alert("Question posted !");
-        })*/
 
     };
 
@@ -39,7 +32,7 @@ app.controller("QuestionController", function($scope, $resource, $http, $routePa
     $scope.getQuestion = function() {
         var id = $routeParams.id;
 
-        Questions.get({questionId:id}, function(question) {
+        Question.get({questionId:id}, function(question) {
             $scope.question = question;
 
             // Get user
@@ -48,7 +41,16 @@ app.controller("QuestionController", function($scope, $resource, $http, $routePa
             });
 
             // Get comments
+            $scope.comments = [];
+            question.comments.forEach(function(comment) {
+                Comment.get({commentId:comment.id}, function (comment) {
+                    $scope.comments[comment.id] = comment;
+                });
+            });
 
+
+            //alert(comments);
+            //$scope.comments = comments;
 
 
             // Get answers

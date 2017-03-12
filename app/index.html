@@ -62,11 +62,11 @@
                 <ul class="nav navbar-nav"></ul>
                 <!-- Login part -->
                 <div class="nav navbar-nav navbar-right">
-                    <div ng-if="username!==null">
-                        <a class="navbar-brand" href="/user/edit/${sec.loggedInUserInfo(field: 'id')}">{{username}}</a>
+                    <div ng-if="session">
+                        <a class="navbar-brand" href="/user/edit/{{session.id}}">{{session.username}}</a>
                         <a class="navbar-brand" href="/" ng-controller="LoginController" ng-click="logout()">{{ 'MENU.USER.SIGNOUT' | translate }}</a>
                     </div>
-                    <div ng-if="username===null">
+                    <div ng-if="!session">
                         <a class="navbar-brand" href="/user/create">{{'MENU.USER.SIGNUP' | translate }}</a>
                         <a class="navbar-brand" href="/login">{{'MENU.USER.SIGNIN' | translate }}</a>
                     </div>

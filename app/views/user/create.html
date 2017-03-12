@@ -16,14 +16,8 @@
             <button type="submit" class="inputButton">
                 {{ 'REGISTER.SUBMIT' | translate }}
             </button>
-            <!-- TODO : add roles
-            <g:hiddenField name="ROLE_USER" value="on"/>
-            -->
-
-            <div class="text-center">
-                <a controller="user" action="create">
-                    <g:message code="register.link.login" default="Register a new account"/>
-                </a>
+            <div ng-if="error" class="alert alert-danger top-margin-50">
+                    {{error}}
             </div>
         </form>
     </div>

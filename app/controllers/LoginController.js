@@ -1,4 +1,4 @@
-app.controller("LoginController", function($scope, $location, $route, AuthService) {
+app.controller("LoginController", function($scope, $location, $route, AuthService, User) {
 
     $scope.credentials = {
         username: '',
@@ -8,20 +8,27 @@ app.controller("LoginController", function($scope, $location, $route, AuthServic
     $scope.login = function(credentials) {
 
         // Launch login process
-        AuthService.login(credentials).then(function (username) {
+        AuthService.login(credentials).then(function success(username) {
 
-            // Define current user
-            $scope.setUsername(username);
+            // Get information about user
+            User.getUserByName({userId:username}, function success(user) {
+                // Define current user
+                $scope.setUser(user);
 
-            // Redirect to home
-            $location.path('/');
+                // Redirect to home
+                $location.path('/');
+            }, function error(response) {
+                alert('Unable to retrieve user');
+            });
+        }, function error() {
+            $scope.error = 'Unable to login';
         });
     };
 
     $scope.logout = function() {
 
         AuthService.logout();
-        $scope.setUsername(null);
+        $scope.setUser(null);
 
         $route.reload();
     }

@@ -1,3 +1,5 @@
+var port = 8081;
+
 var express = require('express');
 var app = express();
 
@@ -7,5 +9,5 @@ app.get('*', function (req, res) {
     res.redirect('/');
 });
 
-app.listen(8081, 'localhost');
-console.log("Server launched");
+app.listen(port, 'localhost');
+console.log("Server launched at localhost:"+port);

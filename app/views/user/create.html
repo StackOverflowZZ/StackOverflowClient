@@ -1,0 +1,30 @@
+<div class="container top-margin-50">
+    <div id="logbox" class="top-margin-50">
+        <form ng-controller="UserController" ng-submit="createUser(user)" autocomplete="off">
+            <h1>{{ 'REGISTER.TITLE' | translate }}</h1>
+
+            <input ng-model="user.username" type="text" pattern="^[\w]{3,16}$" autofocus="autofocus"
+                   class="input pass" placeholder="{{ 'LOGIN.FIELD.USERNAME' | translate }}" required="required" />
+
+
+            <input ng-model="user.email" type="email" required="required"
+                   class="input pass" placeholder="{{ 'LOGIN.FIELD.EMAIL' | translate }}"/>
+
+            <input ng-model="user.password" type="password" required="required"
+                   placeholder="{{ 'LOGIN.FIELD.PASSWORD' | translate }}" class="input pass"/>
+
+            <button type="submit" class="inputButton">
+                {{ 'REGISTER.SUBMIT' | translate }}
+            </button>
+            <!-- TODO : add roles
+            <g:hiddenField name="ROLE_USER" value="on"/>
+            -->
+
+            <div class="text-center">
+                <a controller="user" action="create">
+                    <g:message code="register.link.login" default="Register a new account"/>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

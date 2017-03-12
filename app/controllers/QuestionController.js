@@ -1,5 +1,5 @@
 app.controller("QuestionController",
-    function($scope, $resource, $routeParams, API_URL,
+    function($scope, $routeParams,
              Question, Comment, User, Session, Tag) {
 
     // Get all questions for index.

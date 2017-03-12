@@ -155,9 +155,14 @@ var translations_fr = {
         TITLE: 'Connexion à un compte',
         FIELD: {
             USERNAME: 'Entrez votre nom d\'utilisateur',
+            EMAIL: 'Entrez votre email',
             PASSWORD: 'Entrez votre mot de passe',
             SUBMIT: 'Connexion'
         }
+    },
+    REGISTER: {
+        TITLE: 'Créer un nouveau compte',
+        SUBMIT: 'Créer le compte'
     },
     CREATED: 'Créée :',
     EDITED: 'Editée :'

@@ -172,9 +172,14 @@ var translations_en = {
         TITLE: 'Account login',
         FIELD: {
             USERNAME: 'Enter your username',
+            EMAIL: 'Enter your email',
             PASSWORD: 'Enter your password',
             SUBMIT: 'Sign in'
         }
+    },
+    REGISTER: {
+        TITLE: 'Create a new account',
+        SUBMIT: 'Register a new account'
     },
     CREATED: 'Created :',
     EDITED: 'Edited'

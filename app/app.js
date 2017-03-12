@@ -52,6 +52,10 @@ app.config(
                 templateUrl: 'views/user/auth.html',
                 controller: 'LoginController'
             })
+            .when("/user/create", {
+                templateUrl: 'views/user/create.html',
+                controller: 'LoginController'
+            })
             .otherwise({
                 templateUrl : "views/errors/error404.html"
             });

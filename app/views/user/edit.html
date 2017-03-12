@@ -1,12 +1,12 @@
 <div class="container top-margin-50" data-ng-controller="UserController" data-ng-init="getUser()">
 
     <h1 class="text-center">
-        {{ user.username }} {{ 'USER.TITLE' | translate }}
+        {{user.username}} {{ 'USER.TITLE' | translate }}
         <span class="badge">{{user.reputation}}</span>
     </h1>
 
     <div ng-if="session && session.id === user.id">
-        <form><!-- update user -->
+        <form ng-controller="UserController" ng-submit="updateUser(user)">
 
             <!-- User information -->
             <div class="panel panel-primary top-margin-50">
@@ -21,12 +21,15 @@
                             <label>{{ 'USER.EDIT.PASSWORD' | translate }}</label> <br/>
                         </div>
                         <div class="col-md-6" style="display: inline-block">
-                            <input ng-model="user.username" type="text" pattern="^[\w]{3,16}$" autofocus="autofocus"
+                            <input ng-model="user.username" type="text" pattern="^[\w]{2,16}$" autofocus="autofocus"
                                    placeholder="{{user.username}}"/> <br />
                             <input ng-model="user.email" type="email"
                                    placeholder="{{user.email}}"/> <br />
                             <input ng-model="user.password" type="password" /> <br />
                         </div>
+                    </div>
+                    <div ng-if="updateError" class="alert alert-danger text-center top-margin-50">
+                        {{ updateError }}
                     </div>
                     <hr/>
                     <div class="row text-center">
@@ -38,52 +41,50 @@
                     </div>
                 </div>
             </div>
-            </g:isOwner>
-
-            <!-- Admin Options -->
-            <div ng-if="isAdmin" class="panel panel-danger top-margin-50">
-                <div class="panel-heading">
-                    <h3>{{ 'USER.EDIT.ADMIN' | translate}}</h3>
-                </div>
-                <div class="panel-body">
-                    <h4 class="text-center">{{ 'USER.EDIT.ROLE.TITLE' | translate }}</h4>
-                    <div class="row text-center top-margin-50">
-                        <div class="col-xs-6">
-                            <input type="checkbox" name="ROLE_USER">
-                            <label>{{ 'USER.EDIT.ROLE.USER' | translate }}</label>
-                        </div>
-                        <div class="col-xs-6">
-                            <input type="checkbox" name="ROLE_ADMIN">
-                            <label>{{ 'USER.EDIT.ROLE.ADMIN' | translate }}</label>
-                        </div>
+        </form>
+        <!-- Admin Options -->
+        <div ng-if="isAdmin" class="panel panel-danger top-margin-50">
+            <div class="panel-heading">
+                <h3>{{ 'USER.EDIT.ADMIN' | translate}}</h3>
+            </div>
+            <div class="panel-body">
+                <h4 class="text-center">{{ 'USER.EDIT.ROLE.TITLE' | translate }}</h4>
+                <div class="row text-center top-margin-50">
+                    <div class="col-xs-6">
+                        <input type="checkbox" name="ROLE_USER">
+                        <label>{{ 'USER.EDIT.ROLE.USER' | translate }}</label>
                     </div>
-                    <hr/>
-                    <div class="row text-center">
-                        <div class="col-xs-6">
-                            <button type="submit" class="btn btn-warning text-center">
-                                <strong>
-                                    ${message(code: 'user.update.button', default: 'Update the user')}
-                                </strong>
-                            </button>
-                        </div>
-                        <div class="col-xs-6">
-                            <button type="button" class="btn btn-danger text-center">
-                                <span class="glyphicon glyphicon-minus"></span>
-                                <span><strong>
-                                    ${message(code: 'user.delete.button')}
-                                </strong></span>
-                            </button>
-                        </div>
+                    <div class="col-xs-6">
+                        <input type="checkbox" name="ROLE_ADMIN">
+                        <label>{{ 'USER.EDIT.ROLE.ADMIN' | translate }}</label>
+                    </div>
+                </div>
+                <hr/>
+                <div class="row text-center">
+                    <div class="col-xs-6">
+                        <button type="submit" class="btn btn-warning text-center" ng-click="updateRole()">
+                            <strong>
+                                {{ 'USER.EDIT.BUTTON.EDIT' | translate }}
+                            </strong>
+                        </button>
+                    </div>
+                    <div class="col-xs-6">
+                        <button type="button" class="btn btn-danger text-center" ng-click="deleteUser(user)">
+                            <span class="glyphicon glyphicon-minus"></span>
+                            <span><strong>
+                                {{ 'USER.EDIT.BUTTON.DELETE' | translate }}
+                            </strong></span>
+                        </button>
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 
     <!-- Questions -->
     <div class="panel panel-info">
         <div class="panel-heading">
-            <h3>${message(code: 'user.question.title', default: 'Questions asked')}</h3>
+            <h3>{{ 'USER.EDIT.QUESTION' | translate }}</h3>
         </div>
         <div class="panel-body">
             <table class="table">
@@ -95,25 +96,21 @@
                 </tr>
                 </thead>
                 <tbody>
-                <g:each in="${user.questions}" var="question">
-                    <tr class="text-center">
-                        <td>${question.vote}</td>
+                    <tr ng-repeat="question in user.questions" class="text-center">
+                        <td>{{ questions[question.id].vote }}</td>
                         <td>
-                            <g:link controller="question" action="show" id="${question.id}">
-                                ${question.title}
-                            </g:link>
+                            <a href="/question/get/{{question.id}}">
+                                {{ questions[question.id].title }}
+                            </a>
                         </td>
                         <td>
-                            <g:each in="${question.tags}" var="tag">
-                                <g:link controller="tag" action="show" id="${tag.id}">
-                                    <div class="label label-default right-margin-10">
-                                        ${tag.name}
-                                    </div>
-                                </g:link>
-                            </g:each>
+                            <a ng-repeat="tag in questions[question.id].tags" href="/tag/show/{{tag.id}}">
+                                <div class="label label-default right-margin-10">
+                                    {{ tags[tag.id].name }}
+                                </div>
+                            </a>
                         </td>
                     </tr>
-                </g:each>
                 </tbody>
             </table>
         </div>
@@ -122,7 +119,7 @@
     <!-- Answers -->
     <div class="panel panel-info">
         <div class="panel-heading">
-            <h3>${message(code:'user.answer.title', default:'Answers')}</h3>
+            <h3>{{ 'USER.EDIT.ANSWERS' | translate }}</h3>
         </div>
         <div class="panel-body">
             <table class="table">
@@ -163,7 +160,7 @@
     <!-- Badges -->
     <div class="panel panel-info">
         <div class="panel-heading">
-            <h3>${message(code: 'user.badges.title')}</h3>
+            <h3>{{ 'USER.EDIT.BADGES' | translate }}</h3>
         </div>
         <div class="panel-body">
             <g:each in="${user.badges}" var="badge">

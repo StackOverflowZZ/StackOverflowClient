@@ -174,13 +174,17 @@ var translations_fr = {
             EMAIL: 'Entrez un nouvel e-mail :',
             PASSWORD: 'Entrez un nouveau mot de passe :',
             BUTTON: {
-                EDIT: 'Mettre à jour l\'utilisateur'
+                EDIT: 'Mettre à jour l\'utilisateur',
+                DELETE: 'Supprimer l\'utilisateur'
             },
             ROLE: {
                 TITLE: 'Choisir un rôle',
                 USER: 'Utilisateur',
                 ADMIN: 'Administrateur'
-            }
+            },
+            QUESTION: 'Questions posées',
+            ANSWERS: 'Réponses',
+            BADGES: 'Badges obtenus'
         }
     },
     CREATED: 'Créée :',

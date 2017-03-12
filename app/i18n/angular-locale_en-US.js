@@ -191,13 +191,17 @@ var translations_en = {
             EMAIL: 'Enter a new email: ',
             PASSWORD: 'Enter a new password: ',
             BUTTON: {
-                EDIT: 'Update the user'
+                EDIT: 'Update the user',
+                DELETE: 'Delete the user'
             },
             ROLE: {
                 TITLE: 'Choose a role',
                 USER: 'User',
                 ADMIN: 'Administrator'
-            }
+            },
+            QUESTION: 'Questions asked',
+            ANSWERS: 'Answers',
+            BADGES: 'Badges obtained'
         }
     },
     CREATED: 'Created :',

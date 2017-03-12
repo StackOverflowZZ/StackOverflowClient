@@ -12,15 +12,13 @@
             <button type="submit" class="inputButton">{{ 'LOGIN.FIELD.SUBMIT' | translate }}</button>
 
             <div class="text-center">
-                <!--<g:link controller="credentials" action="create">
-                    <g:message code="login.link.signup" default="Register a new account"/>
-                </g:link>-->
+                <a href="create.html">
+                    {{ 'LOGIN.SIGNUP' | translate }}
+                </a>
             </div>
         </form>
-        <!--
-        <g:if test='${flash.message}'>
-            <div class="alert alert-danger top-margin-50">${flash.message}</div>
-        </g:if>
-        -->
+        <div ng-if="error" class="alert alert-danger top-margin-50">
+            {{error}}
+        </div>
     </div>
 </div>

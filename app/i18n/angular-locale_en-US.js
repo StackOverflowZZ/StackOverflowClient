@@ -175,11 +175,30 @@ var translations_en = {
             EMAIL: 'Enter your email',
             PASSWORD: 'Enter your password',
             SUBMIT: 'Sign in'
-        }
+        },
+        SIGNUP: 'Register a new account'
     },
     REGISTER: {
         TITLE: 'Create a new account',
         SUBMIT: 'Register a new account'
+    },
+    USER: {
+        TITLE: '\'s profile',
+        EDIT: {
+            ADMIN: 'Administrator interface',
+            TITLE: 'Update user information',
+            USERNAME: 'Enter a new username: ',
+            EMAIL: 'Enter a new email: ',
+            PASSWORD: 'Enter a new password: ',
+            BUTTON: {
+                EDIT: 'Update the user'
+            },
+            ROLE: {
+                TITLE: 'Choose a role',
+                USER: 'User',
+                ADMIN: 'Administrator'
+            }
+        }
     },
     CREATED: 'Created :',
     EDITED: 'Edited'

@@ -1,5 +1,5 @@
 app.controller("QuestionController",
-    function($scope, $routeParams,
+    function($scope, $routeParams, $location,
              Question, Comment, User, Session, Tag) {
 
     // Get all questions for index.
@@ -48,8 +48,6 @@ app.controller("QuestionController",
                 });
             });
 
-
-            //alert(comments);
             //$scope.comments = comments;
 
 

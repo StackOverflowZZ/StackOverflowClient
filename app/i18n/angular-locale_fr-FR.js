@@ -158,11 +158,30 @@ var translations_fr = {
             EMAIL: 'Entrez votre email',
             PASSWORD: 'Entrez votre mot de passe',
             SUBMIT: 'Connexion'
-        }
+        },
+        SIGNUP: 'Créer un nouveau compte'
     },
     REGISTER: {
         TITLE: 'Créer un nouveau compte',
         SUBMIT: 'Créer le compte'
+    },
+    USER: {
+        TITLE: '\'s profile',
+        EDIT: {
+            ADMIN: 'Interface administrateur',
+            TITLE: 'Mise à jour des informations de l\'utilisateur',
+            USERNAME: 'Entrez un nouveau pseudonyme :',
+            EMAIL: 'Entrez un nouvel e-mail :',
+            PASSWORD: 'Entrez un nouveau mot de passe :',
+            BUTTON: {
+                EDIT: 'Mettre à jour l\'utilisateur'
+            },
+            ROLE: {
+                TITLE: 'Choisir un rôle',
+                USER: 'Utilisateur',
+                ADMIN: 'Administrateur'
+            }
+        }
     },
     CREATED: 'Créée :',
     EDITED: 'Editée :'

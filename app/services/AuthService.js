@@ -34,7 +34,7 @@ app.factory('AuthService', function ($http, Session, API_URL) {
 
                 return response.data.username;        // TODO return something ?
             }, function error(response) {
-                alert('An error occurred : ' + response);
+                throw response;
             });
     };
 
@@ -62,6 +62,11 @@ app.factory('AuthService', function ($http, Session, API_URL) {
             authorizedRoles = [authorizedRoles];
         }
         return (authService.isAuthenticated() && authorizedRoles.indexOf(Session.userRole) !== -1);
+    };
+
+    authService.isAdmin = function() {
+        var roles = Session.getRoles();
+        return roles.indexOf("ROLE_ADMIN") !== -1;
     };
 
     return authService;

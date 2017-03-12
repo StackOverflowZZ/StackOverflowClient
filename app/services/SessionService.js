@@ -16,5 +16,9 @@ app.service('Session', function () {
 
     this.getAccessToken = function() {
         return this.accessToken;
-    }
+    };
+
+    this.getRoles = function() {
+        return this.roles;
+    };
 });

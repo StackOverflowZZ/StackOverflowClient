@@ -5,7 +5,7 @@ app.controller('AppController', function ($scope, USER_ROLES, AuthService) {
     $scope.isAuthenticated = AuthService.isAuthenticated;
     $scope.isAuthorized = AuthService.isAuthorized;
 
-    $scope.setUsername = function (username) {
-        $scope.username = username;
+    $scope.setUser = function (user) {
+        $scope.session = user;
     };
 });

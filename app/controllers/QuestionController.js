@@ -1,6 +1,6 @@
 app.controller("QuestionController",
     function($scope, $routeParams, $location,
-             Question, Comment, User, Session, Tag) {
+             Question, Comment, Answer, User, Session, Tag) {
 
     // Get all questions for index.
     $scope.getQuestions = function() {
@@ -52,6 +52,24 @@ app.controller("QuestionController",
 
 
             // Get answers
+            $scope.answers = [];
+            question.answers.forEach(function(answer) {
+                Answer.get({answerId:answer.id}, function (answer) {
+                    var comments = [];
+                    answer.comments.forEach(function(comment) {
+                        Comment.get({commentId:comment.id}, function (comment) {
+                            answer.comments[
+                                answer.comments.indexOf(
+                                    answer.comments.find(function(element){
+                                         return element.id == comment.id;
+                                    })
+                                )
+                            ] = comment
+                        });
+                    });
+                    $scope.answers[answer.id] = answer;
+                });
+            });
         });
     };
 });

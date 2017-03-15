@@ -48,6 +48,10 @@ app.config(
                 templateUrl: 'views/question/create.html',
                 controller: 'QuestionController'
             })
+            .when("/comment/get/:id", {
+                templateUrl: 'views/comment/show.html',
+                controller: 'CommentController'
+            })
             .when("/login", {
                 templateUrl: 'views/user/auth.html',
                 controller: 'LoginController'

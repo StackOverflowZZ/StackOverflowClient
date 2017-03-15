@@ -70,37 +70,47 @@
             <hr />
         </div>
     </div>
-<!--
-    <g:form controller="comment" action="addComment" method="post" >
-        <g:hiddenField name="idQuestion" value="${question.id}" />
-        <g:textField name="text" value="" class="add-comment"
-                     placeholder="${message(code: 'question.create.comment', default: 'Add a new comment...')}" />
-        <button type="submit" class="btn btn-success add-comment">
-            <span class="glyphicon glyphicon-plus"/>
-        </button>
-    </g:form> -->
 
-    <h2 class="top-margin-50">${message(code: 'question.show.answers', default: 'Answers')}</h2>
+    <form ng-controller="CommentController" ng-submit="createComment(comment,idQuestion,idAnswer)" autocomplete="off">
+        <!-- ne marche pas -->
+        <input hidden="hidden" ng-value="idQuestion" value=1></input>
+        <div class="row top-margin-50">
+            <textarea type=text ng-model="comment.text" class="big-textarea add-comment" rows="10" autocomplete="off"
+                        placeholder="Add a new comment..."></textarea>
+        </div>
+        <div class="text-center top-margin-50">
+            <button type="submit" class="btn btn-success add-comment">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+        </div>
+    </form>
+
+
+    <h2 class="top-margin-50">Answers</h2>
     <hr/>
-    <g:each in="${question.answers}" var="a">
+     <div ng-repeat="answer in question.answers">
         <tr>
             <td>
-                <g:render template="/answer/displayAnswer" model="['answer':a]" />
+                 <answer answer="answers[answer.id]"></answer>
             </td>
-
         </tr>
         <hr />
-    </g:each>
+    </div>
 
-    <!-- Add answer
-    <g:form controller="answer" action="addAnswer" method="post" >
-        <g:hiddenField name="idQuestion" value="${question.id}" />
-        <g:textField name="text" value="" class="add-answer"
-                     placeholder="${message(code: 'question.create.answer', default: 'Add a new answer...')}" />
-        <button type="submit" class="btn btn-success add-answer">
-            <span class="glyphicon glyphicon-plus"/>
-        </button>
-    </g:form>
+    <!-- Add answer -->
+    <form ng-controller="AnswerController" ng-submit="createAnswer(answer)" autocomplete="off">
+        <!-- ne marche pas -->
+        <input hidden="hidden" ng-value="idQuestion" value=1></input>
+        <div class="row top-margin-50">
+            <textarea type=text ng-model="answer.text" class="big-textarea add-answer" rows="10" autocomplete="off"
+                        placeholder="Add a new answer..."></textarea>
+        </div>
+        <div class="text-center top-margin-50">
+            <button type="submit" class="btn btn-success add-answer">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+        </div>
+    </form>
 
     <!-- Question solved
     <g:isOwner owner="${question.user}">

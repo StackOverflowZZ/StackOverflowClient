@@ -2,7 +2,7 @@ app.directive('answer', function () {
     return {
         restrict: 'E',
         scope: {
-            comment: '=answer'
+            answer: '=answer'
         },
         templateUrl: 'views/answer/show.html'
     };

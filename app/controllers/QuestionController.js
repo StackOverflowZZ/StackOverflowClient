@@ -55,16 +55,9 @@ app.controller("QuestionController",
             $scope.answers = [];
             question.answers.forEach(function(answer) {
                 Answer.get({answerId:answer.id}, function (answer) {
-                    var comments = [];
-                    answer.comments.forEach(function(comment) {
-                        Comment.get({commentId:comment.id}, function (comment) {
-                            answer.comments[
-                                answer.comments.indexOf(
-                                    answer.comments.find(function(element){
-                                         return element.id == comment.id;
-                                    })
-                                )
-                            ] = comment
+                    answer.comments.forEach(function(comment, index) {
+                        Comment.get({commentId:comment.id}, function (c) {
+                            answer.comments[index] = c;
                         });
                     });
                     $scope.answers[answer.id] = answer;

@@ -13,7 +13,7 @@ app.controller("LoginController", function($scope, $location, $route, AuthServic
             // Get information about user
             User.getUserByName({userId:username}, function success(user) {
                 // Define current user
-                $scope.setUser(user);
+                $scope.setUser(user, AuthService.isAdmin());
 
                 // Redirect to home
                 $location.path('/');
@@ -28,7 +28,7 @@ app.controller("LoginController", function($scope, $location, $route, AuthServic
     $scope.logout = function() {
 
         AuthService.logout();
-        $scope.setUser(null);
+        $scope.setUser(null,false);
 
         $route.reload();
     }

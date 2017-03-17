@@ -29,7 +29,7 @@ app.controller("UserController",
             $location.path('/');
         });
 
-        $scope.isAdmin = AuthService.isAdmin();
+       // $scope.isAdmin = AuthService.isAdmin();
 
 
     };

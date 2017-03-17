@@ -64,6 +64,10 @@ app.config(
                 templateUrl: 'views/user/edit.html',
                 controller: 'UserController'
             })
+            .when("/features", {
+                templateUrl: 'views/feature/index.html',
+                controller: 'FeatureController'
+            })
             .otherwise({
                 templateUrl : "views/errors/error404.html"
             });

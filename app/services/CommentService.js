@@ -1,6 +1,5 @@
-app.factory('Comment', function($resource, API_URL, Session) {
-    // Define Question resource
-    var commentResource = $resource(API_URL + '/comment/:commentId', {commentId: '@id'}, {});
+app.factory('Comment', function($resource, API_URL) {
 
-    return commentResource;
+    // Define Comment resource
+    return $resource(API_URL + '/comment/:commentId', {commentId: '@id'}, {});
 });

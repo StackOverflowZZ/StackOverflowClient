@@ -1,7 +1,5 @@
-app.factory('Feature', function($resource, API_URL, Session) {
+app.factory('Feature', function($resource, API_URL) {
 
     // Define Feature resource
-    var featureResource = $resource(API_URL + '/feature/:featureId', {featureId: '@id'}, {});
-
-    return featureResource;
+    return $resource(API_URL + '/feature/:featureId', {featureId: '@id'}, {});
 });

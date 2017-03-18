@@ -1,18 +1,15 @@
 app.controller("UserController",
-    function($scope, $location, $routeParams, User, Question, Tag, AuthService) {
+    function($scope, $location, $routeParams, User, Question, Answer, Tag, Badge, AuthService) {
 
     $scope.getUser = function() {
         // Get user
         User.get({userId:$routeParams.id}, function success(user) {
            $scope.user = user;
 
-            // Get questions
-            $scope.questions = [];
-
-            user.questions.forEach(function(question) {
-                Question.get({questionId:question.id}, function success(question) {
-                    $scope.questions[question.id] = question;
-                })
+            user.questions.forEach(function(question, index, array) {
+                Question.get({questionId:question.id}, function success(q) {
+                    array[index] = q
+                });
             });
 
             // Get tags
@@ -23,15 +20,30 @@ app.controller("UserController",
                 })
             });
 
+            // Get answers
+            user.answers.forEach(function (answer, index, array) {
+                Answer.get({answerId: answer.id}, function success(a) {
+
+                    Question.get({questionId:a.question.id}, function success(question) {
+                        a.question = question;
+                    });
+
+                    array[index] = a;
+                });
+            });
+
+            // Get badges
+            user.badges.forEach(function (badge, index, array) {
+                Badge.get({badgeId: badge.id}, function success(b) {
+
+                    array[index] = b;
+                });
+            });
 
         }, function error(response) {
             alert('Unable to get user !');
             $location.path('/');
         });
-
-       // $scope.isAdmin = AuthService.isAdmin();
-
-
     };
 
     $scope.createUser = function(user) {

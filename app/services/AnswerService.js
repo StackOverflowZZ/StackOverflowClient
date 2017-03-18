@@ -1,6 +1,5 @@
-app.factory('Answer', function($resource, API_URL, Session) {
-    // Define Answer resource
-    var answerResource = $resource(API_URL + '/answer/:answerId', {answerId: '@id'}, {});
+app.factory('Answer', function($resource, API_URL) {
 
-    return answerResource;
+    // Define Answer resource
+    return $resource(API_URL + '/answer/:answerId', {answerId: '@id'}, {});
 });

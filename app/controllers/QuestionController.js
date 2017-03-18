@@ -10,13 +10,17 @@ app.controller("QuestionController",
             $scope.question = question;
 
             // Get user
-            User.get({userId:id}, function(user) {
-                $scope.user = user;
+            User.get({userId:question.user.id}, function(u) {
+                question.user = u;
             });
 
             // Get comments
             question.comments.forEach(function(comment,index) {
                 Comment.get({commentId:comment.id}, function (c) {
+                    User.get({userId:c.user.id}, function(u) {
+                        c.user = u;
+                    });
+
                     question.comments[index] = c;
                 });
             });
@@ -26,9 +30,18 @@ app.controller("QuestionController",
                 Answer.get({answerId:answer.id}, function (a) {
                     a.comments.forEach(function(comment, indexComment) {
                         Comment.get({commentId:comment.id}, function (c) {
+                            User.get({userId:c.user.id}, function(u) {
+                                c.user = u;
+                            });
+
                             a.comments[indexComment] = c;
                         });
                     });
+                    
+                    User.get({userId:a.user.id}, function(u) {
+                        a.user = u;
+                    });
+
                     question.answers[indexAnswer] = a;
                 });
             });

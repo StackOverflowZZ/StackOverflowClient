@@ -9,7 +9,6 @@
                     </button>
                 </h3>
             </form>
-        </form>>
             <!-- Display the value -->
             <h3 style="margin: 0px" class="text-center">
                 <span>
@@ -55,11 +54,7 @@
         </div>
     </div>
 
-    <form ng-controller="CommentController" ng-submit="createComment(comment,idQuestion,idAnswer)" autocomplete="off">
-        <!-- ne marche pas -->
-        <input hidden="hidden" ng-value="idQuestion" value=1></input>
-        <input hidden="hidden" ng-value="idAnswer" value=1></input>
-
+    <form ng-controller="CommentController" ng-submit="createComment(comment,answer.id,null)" autocomplete="off">
         <div class="row top-margin-50">
             <textarea type=text ng-model="comment.text" class="big-textarea add-comment" rows="10" autocomplete="off"
                         placeholder="Add a new comment..."></textarea>

@@ -213,8 +213,11 @@ var translations_en = {
     },
     CREATED: 'Created :',
     EDITED: 'Edited',
-    FEATURES:{
+    FEATURE:{
         ENABLED:'Enabled',
         DISABLED:'Disabled'
+    },
+    ANSWER:{
+        EDITANSWER:'Edit answer'
     }
 };

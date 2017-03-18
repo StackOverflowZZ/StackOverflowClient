@@ -1,5 +1,5 @@
 app.controller("QuestionController",
-    function($scope, $routeParams, $location, $translate,
+    function($scope, $route, $routeParams, $location, $translate,
              Question, Comment, Answer, User, Session, Tag) {
 
     // Get only one question
@@ -40,10 +40,10 @@ app.controller("QuestionController",
             question.resolved = true;
 
             // Do the update
-            Question.update({question: question.id}, question, function success() {
+            Question.update({questionId: question.id}, question, function success() {
 
                 // refresh
-                $location.path('/question/{{question.id}}');
+                $route.reload()
             }, function error(response) {
                 $scope.updateError = 'An error ' + response.status + ' occurred';
             });

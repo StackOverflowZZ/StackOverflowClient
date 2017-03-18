@@ -128,6 +128,7 @@ var translations_fr = {
 
     MENU: {
         HOME: 'Accueil',
+        FEATURES: 'Fonctionnalités',
         USER: {
             SIGNIN: 'Se connecter',
             SIGNUP: 'S\'inscrire',
@@ -137,7 +138,8 @@ var translations_fr = {
     QUESTION: {
         HOME: {
             TITLE: 'Questions posées',
-            NEW: 'Nouvelle question'
+            NEW: 'Nouvelle question',
+            ASKQUESTION: 'Posez une question'
         },
         CREATE: {
             TITLE: 'Nouvelle question',
@@ -148,8 +150,11 @@ var translations_fr = {
             NEW: 'Ajouter une question'
         },
         SHOW: {
-            RESOLVED: 'Résolue'
+            RESOLVED: 'Résolue',
+            SETASRESOLVED: 'Définir la question comme résolue'
         },
+        ANSWERS:'Réponses',
+        COMMENTS:'Commentaires',
         CREATED: 'Question créée',
         DELETED: 'Question supprimée'
     },
@@ -190,5 +195,12 @@ var translations_fr = {
         }
     },
     CREATED: 'Créée :',
-    EDITED: 'Editée :'
+    EDITED: 'Editée :',
+    FEATURE:{
+        ENABLED:'Activé',
+        DISABLED:'Désactivé'
+    },
+    ANSWER:{
+        EDITANSWER:'Editer la réponse'
+    }
 };

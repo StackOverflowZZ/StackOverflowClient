@@ -1,5 +1,5 @@
 app.controller("CommentController",
-    function($scope, $location, Comment) {
+    function($scope, $route, $location, Comment) {
 
     $scope.createComment = function(comment, idQuestion, idAnswer){
         var question = {id:null};
@@ -17,7 +17,7 @@ app.controller("CommentController",
 
         // Post to the endpoint
         Comment.create(comment, function (idQuestion) {
-             $location.path('/question/get/{{idQuestion}}');
+            $route.reload()
         });
     };
 });

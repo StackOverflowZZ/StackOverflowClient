@@ -108,9 +108,9 @@
     </form>
 
     <!-- Question solved -->
-    <div ng-if="session.id == question.user.id">
+    <div ng-if="session.id == question.user.id && !question.resolved">
         <div class="top-margin-50 text-center">
-            <button ng-if="f.enable" type="submit" ng-click="setResolved(question)" class="btn btn-success">
+            <button type="submit" ng-click="setResolved(question)" class="btn btn-success">
                 <span class="glyphicon glyphicon-ok"/>
                 {{ 'QUESTION.SHOW.SETASRESOLVED' | translate }}
                 <span class="glyphicon glyphicon-ok"/>

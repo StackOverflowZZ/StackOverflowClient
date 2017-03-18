@@ -4,17 +4,19 @@
             {{ 'QUESTION.HOME.TITLE' | translate }}</h1>
     </div>
 
-    <!-- Flash message
-    <div class="alert alert-warning text-center" role="status">
-
+    <!-- Flash message -->
+    <div class="alert alert-warning text-center" ng-if="flash" role="status">
+        {{ flash }}
     </div>
-    -->
-    <div class="pull-right" style="margin-bottom: 20px" ng-if="username !== null">
+
+    <!-- Add a question -->
+    <div class="pull-right" style="margin-bottom: 20px" ng-if="session">
         <a href="/question/add" class="btn btn-success">
             <span class="glyphicon glyphicon-plus"></span>
             <span class="text-center">{{ 'QUESTION.HOME.ASKQUESTION' | translate }}</span>
         </a>
     </div>
+
     <div>
         <table class="table table-striped">
             <tbody>
@@ -43,32 +45,20 @@
                     </td>
                     <td>
                         <h4>
-                            <g:isOwner owner="${q.user}">
-                                <g:link class="btn btn-primary" action="edit" id="${q.id}">
-                                    <span class="glyphicon glyphicon-pencil"/>
-                                </g:link>
-                            </g:isOwner>
+                            <a ng-if="session.id == q.user.id || isAdmin" class="btn btn-primary" href="/question/edit">
+                                <span class="glyphicon glyphicon-pencil"/>
+                            </a>
                         </h4>
                     </td>
                     <td>
                         <h4>
-                            <sec:ifAllGranted roles="ROLE_ADMIN">
-                                <g:form action="delete" controller="question" method="delete">
-                                    <g:hiddenField name="id" value="${q.id}"/>
-                                    <button class="btn btn-danger">
-                                        <span class="glyphicon glyphicon-trash"/>
-                                    </button>
-                                </g:form>
-                            </sec:ifAllGranted>
+                            <button ng-if="isAdmin" ng-click="deleteQuestion(q)" class="btn btn-danger">
+                                <span class="glyphicon glyphicon-trash"/>
+                            </button>
                         </h4>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
-        <!--
-        <div>
-            <g:paginate total="${questionCount ?: 0}" />
-        </div>
-        -->
 </div>

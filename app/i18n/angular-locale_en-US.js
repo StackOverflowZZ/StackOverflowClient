@@ -171,7 +171,9 @@ var translations_en = {
             SETASRESOLVED: 'Set question as solved'
         },
         ANSWERS:'Answers',
-        COMMENTS:'Comments'
+        COMMENTS:'Comments',
+        CREATED: 'Question created',
+        DELETED: 'Question deleted'
     },
     LOGIN: {
         TITLE: 'Account login',

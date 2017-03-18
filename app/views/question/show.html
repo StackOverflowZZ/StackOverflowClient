@@ -45,7 +45,7 @@
     </div>
     <!-- Display the user -->
     <div class="text-right">
-        <a href="/user/edit">{{question.user.username}}</a>
+        <a href="/user/edit/{{question.user.id}}">{{question.user.username}}</a>
         <span class="badge">{{question.user.reputation}}</span><br />
         {{ 'CREATED' | translate }} {{ question.created | date:"dd-MM-yyyy HH:mm:ss" }}<br />
         <div ng-if="question.edited != null">

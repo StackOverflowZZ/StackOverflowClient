@@ -5,7 +5,7 @@
         <span class="badge">{{user.reputation}}</span>
     </h1>
 
-    <div ng-if="session && session.id === user.id">
+    <div ng-if="(session && session.id === user.id) || isAdmin">
         <form ng-controller="UserController" ng-submit="updateUser(user)">
 
             <!-- User information -->

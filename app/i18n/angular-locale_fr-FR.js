@@ -149,7 +149,9 @@ var translations_fr = {
         },
         SHOW: {
             RESOLVED: 'Résolue'
-        }
+        },
+        CREATED: 'Question créée',
+        DELETED: 'Question supprimée'
     },
     LOGIN: {
         TITLE: 'Connexion à un compte',

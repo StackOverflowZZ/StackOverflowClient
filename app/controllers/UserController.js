@@ -86,7 +86,7 @@ app.controller("UserController",
     $scope.deleteUser = function(user) {
 
         if(confirm('Do you really want to delete the user? ')) {
-            User.delete({userId: user.id}, function(response) {
+            User.delete({userId: user.id}, function() {
                 if(user.id === $scope.session.id) {
                     AuthService.logout();
                     $scope.setUser(null);

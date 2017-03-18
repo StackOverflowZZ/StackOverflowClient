@@ -166,7 +166,9 @@ var translations_en = {
         },
         SHOW: {
             RESOLVED: 'Resolved'
-        }
+        },
+        CREATED: 'Question created',
+        DELETED: 'Question deleted'
     },
     LOGIN: {
         TITLE: 'Account login',

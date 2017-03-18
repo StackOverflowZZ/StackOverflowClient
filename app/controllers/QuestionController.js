@@ -48,7 +48,7 @@ app.controller("QuestionController",
                 $scope.updateError = 'An error ' + response.status + ' occurred';
             });
         }
-    }
+    };
 
     // Get all questions for index.
     $scope.getQuestions = function() {
@@ -68,6 +68,15 @@ app.controller("QuestionController",
 
     // Create a question
     $scope.createQuestion = function(question) {
+
+        // Modify tags for sending
+        var tags = [];
+
+        for(key in question.tags) {
+            tags.push({id: question.tags[key].id});
+        }
+
+        question.tags = tags;
 
         // Post to the endpoint
         Question.create(question, function () {

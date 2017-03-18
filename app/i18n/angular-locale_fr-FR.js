@@ -202,6 +202,10 @@ var translations_fr = {
         DISABLED:'Désactivé'
     },
     ANSWER:{
-        EDITANSWER:'Editer la réponse'
+        EDITANSWER:'Editer la réponse',
+        DELETED: 'Réponse supprimée'
+    },
+    COMMENT:{
+        DELETED: 'Commentaire supprimé'
     }
 };

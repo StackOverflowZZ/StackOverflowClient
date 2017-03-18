@@ -10,6 +10,13 @@ app.controller("AnswerController",
         });
     };
 
+    $scope.deleteAnswer = function(answer) {
+        Answer.delete({answerId: answer.id}, function() {
+            $scope.setFlash($translate.instant('ANSWER.DELETED'));
+            $route.reload()
+        });
+    }
+
     $scope.upVote = function(answer) {
         Answer.upVote({answerId: answer.id}, answer, function success() {
             answer.vote++

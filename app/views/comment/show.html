@@ -40,19 +40,14 @@
 
     <div class="text-right">
         <!-- Edit area -->
-        <g:isOwner owner="${comment.user}">
+        <div ng-if="session.id == comment.user.id || isAdmin">
             <div class="btn btn-primary edit_btn comment_edition">
                 <span class="glyphicon glyphicon-pencil" />
-                <g:message code="comment.button.label" default="Edit" />
             </div>
-            <g:form method="DELETE" controller="comment" action="delete" style="margin-top: 5px;">
-                <g:hiddenField name="id" value="${comment.id}" />
-                <button type="submit" class="btn btn-danger">
-                    <span class="glyphicon glyphicon-trash"/>
-                    <g:message code="default.button.delete" default="Delete" />
-                </button>
-            </g:form>
-        </g:isOwner>
+            <button ng-click="deleteComment(comment)" class="btn btn-danger">
+                <span class="glyphicon glyphicon-trash"/>
+            </button>
+        </div>
     </div>
 </div>
 

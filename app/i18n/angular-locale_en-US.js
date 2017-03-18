@@ -145,6 +145,7 @@ angular.module("ngLocale", [], ["$provide", function($provide) {
 var translations_en = {
     MENU: {
         HOME: 'Home',
+        FEATURES: 'Features',
         USER: {
             SIGNIN: 'Sign in',
             SIGNUP: 'Sign up',
@@ -154,7 +155,8 @@ var translations_en = {
     QUESTION: {
         HOME: {
             TITLE: 'Questions asked',
-            NEW: 'New question'
+            NEW: 'New question',
+            ASKQUESTION: 'Ask a question'
         },
         CREATE: {
             TITLE: 'Titre de la question',

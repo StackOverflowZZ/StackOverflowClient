@@ -16,5 +16,21 @@ app.controller("CommentController",
             $route.reload()
         });
     };
+
+    $scope.upVote = function(comment) {
+        Comment.upVote({commentId: comment.id}, comment, function success() {
+            comment.vote++
+        }, function error(response) {
+            $scope.updateError = 'An error ' + response.status + ' occurred';
+        });
+    }
+
+    $scope.downVote = function(comment) {
+        Comment.downVote({commentId: comment.id}, comment, function success() {
+            comment.vote--
+        }, function error(response) {
+            $scope.updateError = 'An error ' + response.status + ' occurred';
+        });
+    }
 });
 

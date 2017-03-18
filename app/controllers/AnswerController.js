@@ -9,4 +9,20 @@ app.controller("AnswerController",
             $route.reload()
         });
     };
+
+    $scope.upVote = function(answer) {
+        Answer.upVote({answerId: answer.id}, answer, function success() {
+            answer.vote++
+        }, function error(response) {
+            $scope.updateError = 'An error ' + response.status + ' occurred';
+        });
+    }
+
+    $scope.downVote = function(answer) {
+        Answer.downVote({answerId: answer.id}, answer, function success() {
+            answer.vote--
+        }, function error(response) {
+            $scope.updateError = 'An error ' + response.status + ' occurred';
+        });
+    }
 });

@@ -110,5 +110,21 @@ app.controller("QuestionController",
 
         });
     }
+
+    $scope.upVote = function(question) {
+        Question.upVote({questionId: question.id}, question, function success() {
+            question.vote++
+        }, function error(response) {
+            $scope.updateError = 'An error ' + response.status + ' occurred';
+        });
+    }
+
+    $scope.downVote = function(question) {
+        Question.downVote({questionId: question.id}, question, function success() {
+            question.vote--
+        }, function error(response) {
+            $scope.updateError = 'An error ' + response.status + ' occurred';
+        });
+    }
 });
 

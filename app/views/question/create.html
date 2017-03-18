@@ -1,12 +1,7 @@
-<!-- TODO - Change title -->
 <div class="container top-margin-50">
     <div class="jumbotron">
         <h1 class="text-center">{{ 'QUESTION.CREATE.TITLE' | translate }}</h1>
     </div>
-
-    <!-- Flash message
-    <div class="alert alert-warning text-center" role="status">${flash.message}</div>
-    -->
 
     <!-- Errors area
     <g:hasErrors bean="${this.question}">
@@ -29,20 +24,17 @@
                       placeholder="{{ 'QUESTION.CREATE.FIELDS.TEXT' | translate }}"></textarea>
         </div>
 
-        <!-- Tag choice
-        <div class="row top-margin-50">
-            <g:each in="${listTags}" var="tag">
-                <div class="right-margin-10 col-xs-3">
-                    <input type="checkbox" name="tags" value="${tag.id}">
-                    <h3 style="display: inline-block">
-                        <span class="label label-default right-margin-10">
-                            ${tag.name}
-                        </span>
-                    </h3>
-                </div>
-            </g:each>
+        <div class="row top-margin-50 text-center" data-ng-controller="TagController" data-ng-init="getTags()">
+            <div class="right-margin-10 col-xs-3" ng-repeat="tag in tags">
+                <input type="checkbox" ng-model="question.tags['id']" ng-true-value="{{tag.id}}" ng-false-value="">
+                <h3 style="display: inline-block">
+                    <span class="label label-default right-margin-10">
+                        {{tag.name}}
+                    </span>
+                </h3>
+            </div>
         </div>
-        -->
+
         <div class="text-center top-margin-50">
             <button type="submit" class="btn btn-success">
                 <span class="glyphicon glyphicon-plus"></span>

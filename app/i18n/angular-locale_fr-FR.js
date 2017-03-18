@@ -128,6 +128,7 @@ var translations_fr = {
 
     MENU: {
         HOME: 'Accueil',
+        FEATURES: 'Fonctionnalités',
         USER: {
             SIGNIN: 'Se connecter',
             SIGNUP: 'S\'inscrire',
@@ -137,7 +138,8 @@ var translations_fr = {
     QUESTION: {
         HOME: {
             TITLE: 'Questions posées',
-            NEW: 'Nouvelle question'
+            NEW: 'Nouvelle question',
+            ASKQUESTION: 'Poser une question'
         },
         CREATE: {
             TITLE: 'Nouvelle question',

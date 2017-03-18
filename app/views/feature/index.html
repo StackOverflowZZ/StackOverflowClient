@@ -1,38 +1,8 @@
 <div class="container" data-ng-controller="FeatureController" data-ng-init="getFeatures()">
     <div class="jumbotron">
-        <h1 class="text-center">
-            FEATURES</h1>
+        <h1 class="text-center">FEATURES</h1>
     </div>
 
-    <div>
-        <table class="table table-striped">
-            <tbody>
-            <g:each in="${featureList}" var="f">
-                <tr>
-                    <!-- <td class="text-center">
-                        <h4>${f.name}</h4>
-                    </td>
-                    <td>
-                        <sec:ifAllGranted roles="ROLE_ADMIN">
-                            <g:form controller="feature" action="toggle" id="${f.id}" method="PUT">
-                                <g:if test="${f.enable}">
-                                    <button type="submit" class="btn btn-success">
-                                        Enabled
-                                    </button>
-                                </g:if>
-                                <g:else>
-                                    <button type="submit" class="btn btn-danger">
-                                        Disabled
-                                    </button>
-                                </g:else>
-                            </g:form>
-                        </sec:ifAllGranted>
-                    </td>-->
-                </tr>
-            </g:each>
-            </tbody>
-        </table>
-    </div>
     <div>
         <table class="table table-striped">
             <tbody>
@@ -53,5 +23,3 @@
         </table>
     </div>
 </div>
-</body>
-</html>

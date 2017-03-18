@@ -3,7 +3,7 @@
         <form ng-controller="LoginController" ng-submit="login(credentials)" autocomplete="off" novalidate>
             <h1>{{ 'LOGIN.TITLE' | translate }}</h1>
 
-            <input ng-model="credentials.username" type="text" autofocus="autofocus"
+            <input ng-model="credentials.username" type="text" autofocus="autofocus" required
                    class="input pass" placeholder="{{ 'LOGIN.FIELD.USERNAME' | translate }}"/>
 
             <input ng-model="credentials.password" type="password" required="required" id="password"
@@ -12,13 +12,13 @@
             <button type="submit" class="inputButton">{{ 'LOGIN.FIELD.SUBMIT' | translate }}</button>
 
             <div class="text-center">
-                <a href="create.html">
+                <a href="/user/create">
                     {{ 'LOGIN.SIGNUP' | translate }}
                 </a>
             </div>
         </form>
-        <div ng-if="error" class="alert alert-danger top-margin-50">
-            {{error}}
+        <div ng-if="flash" class="alert alert-danger top-margin-50 text-center">
+            {{flash}}
         </div>
     </div>
 </div>

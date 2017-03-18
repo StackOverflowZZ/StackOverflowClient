@@ -60,5 +60,20 @@ app.controller("QuestionController",
             });
         });
     };
+
+    $scope.setResolved = function(question) {
+        if(!question.resolved){
+            question.resolved = true;
+
+            // Do the update
+            Question.update({question: question.id}, question, function success() {
+
+                // refresh
+                $location.path('/question/{{question.id}}');
+            }, function error(response) {
+                $scope.updateError = 'An error ' + response.status + ' occurred';
+            });
+        }
+    }
 });
 

@@ -12,10 +12,10 @@
                     </td>
                     <td> 
                         <button ng-if="f.enable" type="submit" ng-click="toggleFeature(f)" class="btn btn-success">
-                            Enabled
+                            {{ 'FEATURES.ENABLED' | translate }}
                         </button>
                         <button ng-if="!f.enable" type="submit" ng-click="toggleFeature(f)" class="btn btn-danger">
-                            Disabled
+                            {{ 'FEATURES.DISABLED' | translate }}
                         </button>
                     </td>
                 </tr>

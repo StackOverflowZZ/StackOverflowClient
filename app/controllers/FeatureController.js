@@ -1,5 +1,5 @@
 app.controller("FeatureController",
-    function($scope, $routeParams, $location, Feature) {
+    function($scope, $route, $routeParams, $location, Feature) {
 
     // Get all questions for index.
     $scope.getFeatures = function() {
@@ -15,7 +15,7 @@ app.controller("FeatureController",
         Feature.update({featureId: feature.id}, feature, function success() {
 
             // refresh
-            $location.path('/features');
+            $route.reload()
 
         }, function error(response) {
             $scope.updateError = 'An error ' + response.status + ' occurred';

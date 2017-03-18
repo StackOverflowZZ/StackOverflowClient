@@ -1,5 +1,5 @@
 app.controller("QuestionController",
-    function($scope, $routeParams, $location, $translate,
+    function($scope, $route, $routeParams, $location, $translate,
              Question, Comment, Answer, User, Session, Tag) {
 
     // Get only one question
@@ -34,6 +34,21 @@ app.controller("QuestionController",
             });
         });
     };
+
+    $scope.setResolved = function(question) {
+        if(!question.resolved){
+            question.resolved = true;
+
+            // Do the update
+            Question.update({questionId: question.id}, question, function success() {
+
+                // refresh
+                $route.reload()
+            }, function error(response) {
+                $scope.updateError = 'An error ' + response.status + ' occurred';
+            });
+        }
+    }
 
     // Get all questions for index.
     $scope.getQuestions = function() {

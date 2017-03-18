@@ -159,7 +159,7 @@ var translations_en = {
             ASKQUESTION: 'Ask a question'
         },
         CREATE: {
-            TITLE: 'Titre de la question',
+            TITLE: 'Question title',
             FIELDS: {
                 TITLE: 'Question title',
                 TEXT: 'Describe your question here...'
@@ -167,8 +167,11 @@ var translations_en = {
             NEW: 'Add a new question'
         },
         SHOW: {
-            RESOLVED: 'Resolved'
+            RESOLVED: 'Resolved',
+            SETASRESOLVED: 'Set question as solved'
         },
+        ANSWERS:'Answers',
+        COMMENTS:'Comments',
         CREATED: 'Question created',
         DELETED: 'Question deleted'
     },
@@ -209,5 +212,12 @@ var translations_en = {
         }
     },
     CREATED: 'Created :',
-    EDITED: 'Edited'
+    EDITED: 'Edited',
+    FEATURE:{
+        ENABLED:'Enabled',
+        DISABLED:'Disabled'
+    },
+    ANSWER:{
+        EDITANSWER:'Edit answer'
+    }
 };

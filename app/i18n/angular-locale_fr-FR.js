@@ -150,8 +150,11 @@ var translations_fr = {
             NEW: 'Ajouter une question'
         },
         SHOW: {
-            RESOLVED: 'Résolue'
+            RESOLVED: 'Résolue',
+            SETASRESOLVED: 'Définir la question comme résolue'
         },
+        ANSWERS:'Réponses',
+        COMMENTS:'Commentaires',
         CREATED: 'Question créée',
         DELETED: 'Question supprimée'
     },
@@ -192,5 +195,12 @@ var translations_fr = {
         }
     },
     CREATED: 'Créée :',
-    EDITED: 'Editée :'
+    EDITED: 'Editée :',
+    FEATURE:{
+        ENABLED:'Activé',
+        DISABLED:'Désactivé'
+    },
+    ANSWER:{
+        EDITANSWER:'Editer la réponse'
+    }
 };

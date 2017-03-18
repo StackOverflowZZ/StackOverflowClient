@@ -67,7 +67,7 @@ app.controller("QuestionController",
     };
 
     // Create a question
-    $scope.createQuestion = function(question) {
+    $scope.createQuestion = function(question,tags) {
 
         // Modify tags for sending
         var tags = [];

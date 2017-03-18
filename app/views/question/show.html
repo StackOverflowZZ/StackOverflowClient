@@ -64,12 +64,15 @@
         </div>
     </div>
 
-    <form ng-controller="CommentController" ng-submit="createComment(comment,idQuestion,idAnswer)" autocomplete="off">
+    <form ng-controller="CommentController" ng-submit="createComment(comment)" autocomplete="off">
         
         <!-- ne marche pas -->
-        <input hidden="hidden" ng-value="idQuestion" value=1></input>
+        <input type="text" autocomplete="off"
+              ng-model="comment.question"
+              ng-value="question.id">
+
         <div class="row top-margin-50">
-            <textarea type=text ng-model="comment.text" class="big-textarea add-comment" rows="10" autocomplete="off"
+            <textarea type="text" ng-model="comment.text" class="big-textarea add-comment" rows="10" autocomplete="off"
                         placeholder="Add a new comment..."></textarea>
         </div>
 
@@ -95,7 +98,7 @@
     <!-- Add answer -->
     <form ng-controller="AnswerController" ng-submit="createAnswer(answer)" autocomplete="off">
         <!-- ne marche pas -->
-        <input hidden="hidden" ng-value="idQuestion" value=1></input>
+        <input hidden="hidden" ng-model="answer.question" value="{id:question.id"></input>
         <div class="row top-margin-50">
             <textarea type=text ng-model="answer.text" class="big-textarea add-answer" rows="10" autocomplete="off"
                         placeholder="Add a new answer..."></textarea>

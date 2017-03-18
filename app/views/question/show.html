@@ -64,17 +64,15 @@
         </div>
     </div>
 
-    <form ng-controller="CommentController" ng-submit="createComment(comment)" autocomplete="off">
+    <form ng-controller="CommentController" ng-submit="createComment(comment, question.id)" autocomplete="off">
         
-        <!-- ne marche pas -->
-        <input type="text" autocomplete="off"
-              ng-model="comment.question"
-              ng-value="question.id">
+
 
         <div class="row top-margin-50">
             <textarea type="text" ng-model="comment.text" class="big-textarea add-comment" rows="10" autocomplete="off"
                         placeholder="Add a new comment..."></textarea>
         </div>
+
 
         <div class="text-center top-margin-50">
             <button type="submit" class="btn btn-success add-comment">

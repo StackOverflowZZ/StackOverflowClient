@@ -1,7 +1,5 @@
-app.factory('Question', function($resource, API_URL, Session) {
+app.factory('Question', function($resource, API_URL) {
 
     // Define Question resource
-    var questionResource = $resource(API_URL + '/question/:questionId', {questionId: '@id'}, { });
-
-    return questionResource;
+    return $resource(API_URL + '/question/:questionId', {questionId: '@id'}, { });
 });

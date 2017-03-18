@@ -12,7 +12,6 @@ app.constant('USER_ROLES', {
  */
 app.factory('AuthService', function ($http, Session, API_URL) {
 
-
     var authService = { };
 
     /**
@@ -42,26 +41,6 @@ app.factory('AuthService', function ($http, Session, API_URL) {
         Session.destroy();
 
         $http.defaults.headers.common['Authorization'] = '';
-    };
-
-    /**
-     * Tells if someone is authenticated.
-     * @returns {boolean} True if yes, otherwise false.
-     */
-    authService.isAuthenticated = function() {
-        return !!Session.username;
-    };
-
-    /**
-     * Tells if the authenticated user is authorized for an action.
-     * @param authorizedRoles Roles of the user.
-     * @returns {boolean} True if yes, otherwise false.
-     */
-    authService.isAuthorized = function(authorizedRoles) {
-        if(!angular.isArray(authorizedRoles)) {
-            authorizedRoles = [authorizedRoles];
-        }
-        return (authService.isAuthenticated() && authorizedRoles.indexOf(Session.userRole) !== -1);
     };
 
     authService.isAdmin = function() {

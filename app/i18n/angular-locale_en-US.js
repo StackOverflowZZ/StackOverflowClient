@@ -183,6 +183,7 @@ var translations_en = {
             PASSWORD: 'Enter your password',
             SUBMIT: 'Sign in'
         },
+        ERROR: 'Incorrect credentials',
         SIGNUP: 'Register a new account'
     },
     REGISTER: {

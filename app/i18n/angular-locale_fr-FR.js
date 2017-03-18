@@ -166,6 +166,7 @@ var translations_fr = {
             PASSWORD: 'Entrez votre mot de passe',
             SUBMIT: 'Connexion'
         },
+        ERROR: 'Identifiants incorrects',
         SIGNUP: 'Créer un nouveau compte'
     },
     REGISTER: {

@@ -1,4 +1,4 @@
-app.controller("LoginController", function($scope, $location, $route, AuthService, User) {
+app.controller("LoginController", function($scope, $location, $translate, $route, AuthService, User) {
 
     $scope.credentials = {
         username: '',
@@ -21,14 +21,14 @@ app.controller("LoginController", function($scope, $location, $route, AuthServic
                 alert('Unable to retrieve user');
             });
         }, function error() {
-            $scope.error = 'Unable to login';
+            $scope.setFlash($translate.instant('LOGIN.ERROR'));
         });
     };
 
     $scope.logout = function() {
 
         AuthService.logout();
-        $scope.setUser(null,false);
+        $scope.setUser(null, false);
 
         $route.reload();
     }

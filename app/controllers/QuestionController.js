@@ -41,26 +41,21 @@ app.controller("QuestionController",
             });
 
             // Get comments
-            $scope.comments = [];
-            question.comments.forEach(function(comment) {
-                Comment.get({commentId:comment.id}, function (comment) {
-                    $scope.comments[comment.id] = comment;
+            question.comments.forEach(function(comment,index) {
+                Comment.get({commentId:comment.id}, function (c) {
+                    question.comments[index] = c;
                 });
             });
 
-            //$scope.comments = comments;
-
-
             // Get answers
-            $scope.answers = [];
-            question.answers.forEach(function(answer) {
-                Answer.get({answerId:answer.id}, function (answer) {
-                    answer.comments.forEach(function(comment, index) {
+            question.answers.forEach(function(answer, indexAnswer) {
+                Answer.get({answerId:answer.id}, function (a) {
+                    a.comments.forEach(function(comment, indexComment) {
                         Comment.get({commentId:comment.id}, function (c) {
-                            answer.comments[index] = c;
+                            a.comments[indexComment] = c;
                         });
                     });
-                    $scope.answers[answer.id] = answer;
+                    question.answers[indexAnswer] = a;
                 });
             });
         });

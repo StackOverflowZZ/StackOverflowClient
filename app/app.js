@@ -56,6 +56,10 @@ app.config(
                 templateUrl: 'views/comment/show.html',
                 controller: 'CommentController'
             })
+            .when("/tag/show/:id", {
+                templateUrl: 'views/tag/show.html',
+                controller: 'TagController'
+            })
             .when("/login", {
                 templateUrl: 'views/user/auth.html',
                 controller: 'LoginController'

@@ -80,7 +80,7 @@ app.controller("QuestionController",
     };
 
     // Create a question
-    $scope.createQuestion = function(question,tags) {
+    $scope.createQuestion = function(question) {
 
         // Modify tags for sending
         var tags = [];
@@ -97,6 +97,39 @@ app.controller("QuestionController",
             $scope.setFlash($translate.instant('QUESTION.CREATED'));
             $location.path('/');
         });
+    };
+
+    // Update a question
+    $scope.editQuestion = function(question) {
+
+        if(question == null) {
+            var id = $routeParams.id;
+            Question.get({questionId: id }, function success(question) {
+                $scope.question = question;
+            }, function(response) {
+                $scope.setFlash($translate.instant('ERROR') + response.status);
+            });
+        }
+        else {
+            // Modify tags for sending
+            var tags = [];
+            for(key in question.tags) {
+                if(question.tags[key].id)
+                    tags.push({id: question.tags[key].id});
+            }
+
+            question.tags = tags;
+
+            // Post to the endpoint
+            Question.update({questionId: question.id}, question, function () {
+
+                $scope.setFlash($translate.instant('QUESTION.EDITED'));
+                $location.path('/');
+
+            }, function error(response) {
+                $scope.setFlash($translate.instant('ERROR') + response.status);
+            });
+        }
     };
 
     // Delete a question

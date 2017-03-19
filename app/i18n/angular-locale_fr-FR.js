@@ -149,6 +149,7 @@ var translations_fr = {
             },
             NEW: 'Ajouter une question'
         },
+        EDIT: 'Éditer la question',
         SHOW: {
             RESOLVED: 'Résolue',
             SETASRESOLVED: 'Définir la question comme résolue'
@@ -156,6 +157,7 @@ var translations_fr = {
         ANSWERS:'Réponses',
         COMMENTS:'Commentaires',
         CREATED: 'Question créée',
+        EDITED: 'Question édtiée',
         DELETED: 'Question supprimée'
     },
     LOGIN: {

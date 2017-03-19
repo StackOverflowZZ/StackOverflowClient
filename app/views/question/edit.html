@@ -1,6 +1,6 @@
-<div class="container top-margin-50">
+<div class="container" data-ng-controller="QuestionController" data-ng-init="editQuestion()">
     <div class="jumbotron">
-        <h1 class="text-center">{{ 'QUESTION.CREATE.TITLE' | translate }}</h1>
+        <h1 class="text-center">{{ 'QUESTION.EDIT' | translate }}</h1>
     </div>
 
     <!-- Flash message -->
@@ -8,15 +8,15 @@
         {{ flash }}
     </div>
 
-    <form ng-controller="QuestionController" ng-submit="createQuestion(question)" autocomplete="off">
-        <h3 class="text-center top-margin-50">{{ 'QUESTION.CREATE.FIELDS.TITLE' | translate }}</h3>
+    <form ng-controller="QuestionController" ng-submit="editQuestion(question)">
+        <h3 class="text-center top-margin-50">{{ question.title }}</h3>
         <div class="row text-center top-margin-50">
             <input ng-model="question.title" type="text" autofocus="autofocus" class="text-center big-textarea"
-                   placeholder="{{ 'QUESTION.CREATE.FIELDS.TITLE' | translate}}" autocomplete="off"/>
+                   placeholder="{{ question.title }}" autocomplete="off"/>
         </div>
         <div class="row top-margin-50">
             <textarea ng-model="question.text" class="big-textarea" rows="10" autocomplete="off"
-                      placeholder="{{ 'QUESTION.CREATE.FIELDS.TEXT' | translate }}"></textarea>
+                      placeholder="{{ question.text }}"></textarea>
         </div>
 
         <!-- Tags -->
@@ -33,8 +33,7 @@
 
         <div class="text-center top-margin-50">
             <button type="submit" class="btn btn-success">
-                <span class="glyphicon glyphicon-plus"></span>
-                <span class="text-center">{{ 'QUESTION.CREATE.NEW' | translate }}</span>
+                <span class="text-center">{{ 'QUESTION.EDIT' | translate }}</span>
             </button>
         </div>
     </form>

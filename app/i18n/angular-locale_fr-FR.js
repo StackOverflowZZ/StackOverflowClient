@@ -211,10 +211,10 @@ var translations_fr = {
     ANSWER:{
         EDITANSWER:'Editer la réponse',
         DELETED: 'Réponse supprimée',
-        SEND:"Envoyer"
+        SEND:'Envoyer'
     },
     COMMENT:{
         DELETED: 'Commentaire supprimé',
-        SEND:"Envoyer"
+        SEND:'Envoyer'
     }
 };

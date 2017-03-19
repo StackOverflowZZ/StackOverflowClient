@@ -42,7 +42,7 @@ app.controller("UserController",
             });
 
         }, function error(response) {
-            alert('Unable to get user !');
+            $scope.setFlash($translate.instant('ERROR') + response.status);
             $location.path('/');
         });
     };
@@ -62,7 +62,7 @@ app.controller("UserController",
                     // Redirect to home
                     $location.path('/');
                 }, function error(response) {
-                    alert('Unable to retrieve user');
+                    $scope.setFlash($translate.instant('ERROR') + response.status);
                 });
             });
 
@@ -89,7 +89,7 @@ app.controller("UserController",
             }
 
         }, function error(response) {
-            $scope.updateError = $translate.isntant('ERROR') + response.status;
+            $scope.updateError = $translate.instant('ERROR') + response.status;
         });
     };
 
@@ -115,7 +115,7 @@ app.controller("UserController",
                 $scope.setFlash($translate.instant('USER.UPDATED'));
             },
             function error(response) {
-                $scope.setFlash($translate.isntant('ERROR') + response.status);
+                $scope.setFlash($translate.instant('ERROR') + response.status);
             });
         }
 

@@ -13,7 +13,7 @@
                 {{comment.vote}}
             </span>
         </h5>
-        <form form ng-controller="CommentController" ng-submit="downVote(comment)">
+        <form ng-controller="CommentController" ng-submit="downVote(comment)">
             <h4 style="margin: 0px" class="text-center">
                 <button type="submit" class="btn btn-default">
                     <span class="glyphicon glyphicon-triangle-bottom"></span>
@@ -23,9 +23,8 @@
     </div>
     <div class="col-xs-8">
         <!-- Display of the comment -->
-        <form  >
-            <!-- <g:textField class="big-textarea editable_display editable_display_no_border" value="${comment.text}" name="text" readonly="readonly" /> -->
-            <textArea class="big-textarea editable_display editable_display_no_border comment_edition" name="text" readonly="readonly" >
+        <form ng-controller="CommentController" ng-submit="updateComment(comment)">
+            <textArea type=text ng-model="comment.text" class="big-textarea editable_display editable_display_no_border comment_edition" name="text" readonly="readonly" >
                 {{comment.text}}
             </textArea>
             
@@ -34,13 +33,15 @@
                 <span> | {{ comment.created | date:"dd-MM-yyyy HH:mm:ss" }} </span>
             </span>
 
-            <button class="btn_to_display comment_edition hidden" name="editComment" value="Edit" />
+            <button type="submit" class="btn_to_display comment_edition hidden" name="editComment">
+                 {{ 'COMMENT.SEND' | translate}}
+            </button>
         </form>
     </div>
 
     <!-- Edit area -->
     <div ng-if="$parent.$parent.$parent.session.id == comment.user.id || $parent.$parent.$parent.isAdmin" class="text-right"> 
-        <div class="btn btn-primary edit_btn comment_edition">
+        <div ng-controller="CommentController" ng-click="toggleEditionComment($event, team)" class="btn btn-primary edit_btn comment_edition">
             <span class="glyphicon glyphicon-pencil" />
         </div>
         <button ng-controller="CommentController" ng-click="deleteComment(comment)" class="btn btn-danger">

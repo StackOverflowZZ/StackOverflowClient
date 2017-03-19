@@ -210,9 +210,11 @@ var translations_fr = {
     },
     ANSWER:{
         EDITANSWER:'Editer la réponse',
-        DELETED: 'Réponse supprimée'
+        DELETED: 'Réponse supprimée',
+        SEND:"Envoyer"
     },
     COMMENT:{
-        DELETED: 'Commentaire supprimé'
+        DELETED: 'Commentaire supprimé',
+        SEND:"Envoyer"
     }
 };

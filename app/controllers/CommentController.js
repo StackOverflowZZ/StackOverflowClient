@@ -1,5 +1,5 @@
 app.controller("CommentController",
-    function($scope, $route, $location, $translate, Comment) {
+    function($scope, $route, $location, Comment) {
 
     $scope.createComment = function(comment, idAnswer, idQuestion){
         
@@ -20,7 +20,6 @@ app.controller("CommentController",
      // Delete a comment
     $scope.deleteComment = function(comment) {
         Comment.delete({commentId: comment.id}, function() {
-            $scope.setFlash($translate.instant('COMMENT.DELETED'));
             $route.reload()
         });
     }

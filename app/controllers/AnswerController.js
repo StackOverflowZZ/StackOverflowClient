@@ -1,5 +1,5 @@
 app.controller("AnswerController",
-    function($scope, $route, $location, Answer) {
+    function($scope, $route, $location, $translate, Answer) {
 
     $scope.createAnswer = function(answer, idQuestion){
         answer.question={'id':idQuestion}

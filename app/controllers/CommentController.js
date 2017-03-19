@@ -39,5 +39,19 @@ app.controller("CommentController",
             $scope.updateError = 'An error ' + response.status + ' occurred';
         });
     }
+
+    $scope.updateComment = function(comment) {
+        // Do the update
+        Comment.update({commentId: comment.id}, comment, function success() {
+            // refresh
+            $route.reload()
+        }, function error(response) {
+            $scope.updateError = 'An error ' + response.status + ' occurred';
+        });
+    }
+
+    $scope.toggleEditionComment = function($event, team){
+        toggleEdition($($event.currentTarget),".comment_edition");
+    }
 });
 

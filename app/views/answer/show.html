@@ -25,11 +25,13 @@
         </div>
         <div class="col-xs-11">
             <!-- Display of the answer -->
-            <form >
-                <textArea class="big-textarea editable_display editable_display_no_border answer_edition" name="text" readonly="readonly" >
+            <form ng-controller="AnswerController" ng-submit="updateAnswer(answer)">
+                <textArea type=text ng-model="answer.text" class="big-textarea editable_display editable_display_no_border answer_edition" name="text" readonly="readonly" >
                     {{answer.text}}
                 </textArea>
-                <button class="btn_to_display answer_edition hidden" name="editComment" value="Edit" />
+                <button type="submit" class="btn_to_display answer_edition hidden" name="editAnwser">
+                     {{ 'ANSWER.SEND' | translate}}
+                </button>
             </form>
         </div>
     </div>
@@ -69,10 +71,12 @@
     <div ng-if="$parent.session.id == answer.user.id || $parent.isAdmin" class="text-center top-margin-25 row">
         <!-- Edit area -->
         <div class="col-xs-6">
-            <input type="button" class="btn btn-primary glyphicon-pencil edit_btn answer_edition" value="{{ 'ANSWER.EDITANSWER' | translate}}" />
+            <div ng-controller="AnswerController" ng-click="toggleEditionAnswer($event, team)" class="btn btn-primary glyphicon-pencil edit_btn answer_edition">
+                <span>{{ 'ANSWER.EDITANSWER' | translate}} </span>
+            </div>
         </div>
         <div class="col-xs-6">
-            <button ng-click="deleteAnswer(answer)" class="btn btn-danger">
+            <button ng-controller="AnswerController" ng-click="deleteAnswer(answer)" class="btn btn-danger">
             <span class="glyphicon glyphicon-trash"/>
         </button>
         </div>

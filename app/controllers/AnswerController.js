@@ -1,5 +1,5 @@
 app.controller("AnswerController",
-    function($scope, $route, $location, $translate, Answer) {
+    function($scope, $route, $location, Answer) {
 
     $scope.createAnswer = function(answer, idQuestion){
         answer.question={'id':idQuestion}
@@ -12,7 +12,6 @@ app.controller("AnswerController",
 
     $scope.deleteAnswer = function(answer) {
         Answer.delete({answerId: answer.id}, function() {
-            $scope.setFlash($translate.instant('ANSWER.DELETED'));
             $route.reload()
         });
     }
@@ -31,5 +30,19 @@ app.controller("AnswerController",
         }, function error(response) {
             $scope.updateError = 'An error ' + response.status + ' occurred';
         });
+    }
+
+    $scope.updateAnswer = function(answer) {
+        // Do the update
+        Answer.update({answerId: answer.id}, answer, function success() {
+            // refresh
+            $route.reload()
+        }, function error(response) {
+            $scope.updateError = 'An error ' + response.status + ' occurred';
+        });
+    }
+
+    $scope.toggleEditionAnswer = function($event, team){
+        toggleEdition($($event.currentTarget),".answer_edition");
     }
 });

@@ -2,7 +2,7 @@
  * Created by Pierre on 23/01/2017.
  */
 
-$(document).ready(function(){
+function initEditPostMecanism(){
     $(".comment_edition.edit_btn").click(function(){
         toggleEdition($(this),".comment_edition");
     });
@@ -10,7 +10,7 @@ $(document).ready(function(){
     $(".answer_edition.edit_btn").click(function(){
         toggleEdition($(this),".answer_edition");
     });
-});
+};
 
 function toggleEdition (elementBtn, classHTML){
     var block = elementBtn.closest(classHTML+".editable_post_block");

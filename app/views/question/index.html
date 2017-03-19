@@ -10,7 +10,7 @@
     </div>
 
     <!-- Add a question -->
-    <div class="pull-right" style="margin-bottom: 20px" ng-if="session">
+    <div class="pull-right" style="margin-bottom: 20px" ng-if="session && features['Question']">
         <a href="/question/add" class="btn btn-success">
             <span class="glyphicon glyphicon-plus"></span>
             <span class="text-center">{{ 'QUESTION.HOME.ASKQUESTION' | translate }}</span>
@@ -28,7 +28,7 @@
                             </label>
                         </h4>
                     </td>
-                    <td class="text-center">
+                    <td class="text-center" ng-if="features['Vote']">
                         <h4><strong>{{q.vote}}</strong></h4>
                     </td>
                     <td class="text-center">

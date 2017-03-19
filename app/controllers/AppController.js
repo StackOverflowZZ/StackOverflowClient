@@ -15,13 +15,13 @@ app.controller('AppController', function ($scope, $timeout, Feature) {
         $timeout(function() {
             $scope.flash = null
         }, 5000);
-    }
+    };
 
     $scope.init = function(){
         Feature.getAll(function(features) {
             features.forEach(function(f, index){
                 features[f.name]=f.enable
-            })
+            });
             $scope.features = features
         });
     }

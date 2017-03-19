@@ -36,7 +36,7 @@
                     </td>
                     <td class="text-center">
                         <h4 style="display:inline-block;" ng-repeat="tag in q.tags">
-                            <a controller="tag" action="show" id="${tag.id}">
+                            <a href="/tag/show/{{tag.id}}">
                                 <div class="label label-default right-margin-10">
                                     {{tag.name}}
                                 </div>

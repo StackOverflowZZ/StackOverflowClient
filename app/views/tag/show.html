@@ -1,0 +1,55 @@
+<div class="container" data-ng-controller="TagController" data-ng-init="getTag()">
+
+    <div class="jumbotron">
+        <h1 class="text-center">
+            {{tag.name}}
+        </h1>
+    </div>
+
+    <!-- Flash message -->
+    <div class="alert alert-warning text-center" ng-if="flash" role="status">
+        {{ flash }}
+    </div>
+
+    <div>
+        <table class="table table-striped">
+            <tbody>
+                <tr ng-repeat="question in tag.questions">
+                    <td class="text">
+                        <h4 ng-if="question.resolved">
+                            <label class="label label-success">
+                                <span class="glyphicon glyphicon-ok"/>
+                            </label>
+                        </h4>
+                    </td>
+                    <td class="text-center">
+                        <h4><strong>{{question.vote}}</strong></h4>
+                    </td>
+                    <td class="text-center">
+                        <h4>
+                            <a href="/question/show/{{question.id}}">
+                                {{question.title}}
+                            </a>
+                        </h4>
+                    </td>
+                    <td>
+                        <h4>
+                            <a class="btn btn-primary" ng-if="session.id == question.user.id" href="/question/edit/{{question.id}}">
+                                <span class="glyphicon glyphicon-pencil"/>
+                            </a>
+                        </h4>
+                    </td>
+                    <td>
+                        <h4>
+                            <button class="btn btn-danger" ng-if="isAdmin"
+                                    ng-controller="QuestionController" ng-click="deleteQuestion(question)">
+                                <span class="glyphicon glyphicon-trash"/>
+                            </button>
+                        </h4>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

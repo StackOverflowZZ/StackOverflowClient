@@ -109,7 +109,7 @@ app.controller("QuestionController",
             $scope.getQuestions();
 
         });
-    }
+    };
 
     $scope.upVote = function(question) {
         Question.upVote({questionId: question.id}, question, function success() {
@@ -117,7 +117,7 @@ app.controller("QuestionController",
         }, function error(response) {
             $scope.updateError = 'An error ' + response.status + ' occurred';
         });
-    }
+    };
 
     $scope.downVote = function(question) {
         Question.downVote({questionId: question.id}, question, function success() {

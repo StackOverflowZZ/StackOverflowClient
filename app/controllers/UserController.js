@@ -1,5 +1,6 @@
 app.controller("UserController",
-    function($scope, $location, $routeParams, User, Question, Answer, Tag, Badge, AuthService) {
+    function($scope, $location, $routeParams, $translate,
+         User, Question, Answer, Tag, Badge, AuthService) {
 
     $scope.getUser = function() {
         // Get user
@@ -75,44 +76,67 @@ app.controller("UserController",
         // Do the update
         User.update({userId: user.id}, user, function success() {
 
-            // Disconnect user
-            AuthService.logout();
-            $scope.setUser(null);
+            $scope.setFlash($translate.instant('USER.UPDATED'));
 
-            // Redirect to home
-            $location.path('/');
+            if(user.id === $scope.session.id) {
+
+                // Disconnect user
+                AuthService.logout();
+                $scope.setUser(null);
+
+                // Redirect to home
+                $location.path('/');
+            }
 
         }, function error(response) {
-            $scope.updateError = 'An error ' + response.status + ' occurred';
+            $scope.updateError = $translate.isntant('ERROR') + response.status;
         });
-
-        if(user.id === $scope.session.id) {
-
-        }
     };
 
-    $scope.updateRole = function(user) {
-        alert('TODO');
+    $scope.updateRole = function(user, role) {
+
+        var newRole = null;
+
+        for(var r in role) {
+            if(role[r]) {
+                if(newRole != null) {
+                    $scope.setFlash('Only one role can be chosen');
+                    newRole = null;
+                    break;
+                }
+                else {
+                    newRole = {'role': r};
+                }
+            }
+        }
+
+        if(newRole != null) {
+            User.updateRole({userId: user.id}, newRole, function success() {
+                $scope.setFlash($translate.instant('USER.UPDATED'));
+            },
+            function error(response) {
+                $scope.setFlash($translate.isntant('ERROR') + response.status);
+            });
+        }
+
     };
 
     $scope.deleteUser = function(user) {
 
-        if(confirm('Do you really want to delete the user? ')) {
-            User.delete({userId: user.id}, function() {
+        if(confirm($translate.instant('USER.DELETE.CONFIRM'))) {
+            User.delete({userId: user.id}, function success() {
                 if(user.id === $scope.session.id) {
                     AuthService.logout();
                     $scope.setUser(null);
                 }
                 $location.path('/');
+            }, function error(response) {
+                $scope.setFlash($translate.instant('ERROR') + response.status);
             })
         }
         else {
-            alert('Annulé');
+            alert($translate.instant('USER.DELETE.CANCELLED'));
         }
-
-        /*User.delete({userId:user.id}, function success() {
-
-        })*/
     }
 
 });

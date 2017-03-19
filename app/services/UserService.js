@@ -5,6 +5,10 @@ app.factory('User', function($resource, API_URL) {
         'getUserByName': {
             method: 'GET',
             url: API_URL + '/user/getUserByName/:userId'
+        },
+        'updateRole': {
+            method: 'PUT',
+            url: API_URL + '/user/updateRole/:userId'
         }
     });
 });

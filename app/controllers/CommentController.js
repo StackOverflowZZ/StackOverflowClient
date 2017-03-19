@@ -2,7 +2,7 @@ app.controller("CommentController",
     function($scope, $route, $location, $translate, Comment) {
 
     $scope.createComment = function(comment, idAnswer, idQuestion){
-
+        
         if(idAnswer!=null){
             comment.answer={'id':idAnswer}
         }

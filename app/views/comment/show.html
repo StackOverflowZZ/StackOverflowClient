@@ -38,16 +38,14 @@
         </form>
     </div>
 
-    <div class="text-right">
-        <!-- Edit area -->
-        <div ng-if="session.id == comment.user.id || isAdmin">
-            <div class="btn btn-primary edit_btn comment_edition">
-                <span class="glyphicon glyphicon-pencil" />
-            </div>
-            <button ng-click="deleteComment(comment)" class="btn btn-danger">
-                <span class="glyphicon glyphicon-trash"/>
-            </button>
+    <!-- Edit area -->
+    <div ng-if="$parent.$parent.$parent.session.id == comment.user.id || $parent.$parent.$parent.isAdmin" class="text-right"> 
+        <div class="btn btn-primary edit_btn comment_edition">
+            <span class="glyphicon glyphicon-pencil" />
         </div>
+        <button ng-click="deleteComment(comment)" class="btn btn-danger">
+            <span class="glyphicon glyphicon-trash"/>
+        </button>
     </div>
 </div>
 

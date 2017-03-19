@@ -66,17 +66,15 @@
         </div>
     </form>
 
-    <div class="text-center top-margin-25 row">
-        <div ng-if="session.id == answer.user.id || isAdmin">
-            <!-- Edit area -->
-            <div class="col-xs-6">
-                <input type="button" class="btn btn-primary glyphicon-pencil edit_btn answer_edition" value="{{ 'ANSWER.EDITANSWER' | translate}}" />
-            </div>
-            <div class="col-xs-6">
-                <button ng-click="deleteAnswer(answer)" class="btn btn-danger">
-                <span class="glyphicon glyphicon-trash"/>
-            </button>
-            </div>
+    <div ng-if="$parent.session.id == answer.user.id || $parent.isAdmin" class="text-center top-margin-25 row">
+        <!-- Edit area -->
+        <div class="col-xs-6">
+            <input type="button" class="btn btn-primary glyphicon-pencil edit_btn answer_edition" value="{{ 'ANSWER.EDITANSWER' | translate}}" />
+        </div>
+        <div class="col-xs-6">
+            <button ng-click="deleteAnswer(answer)" class="btn btn-danger">
+            <span class="glyphicon glyphicon-trash"/>
+        </button>
         </div>
     </div>
 </div>

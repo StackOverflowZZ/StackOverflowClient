@@ -143,6 +143,7 @@ angular.module("ngLocale", [], ["$provide", function($provide) {
 }]);
 
 var translations_en = {
+    ERROR: 'An error has occured. Error code: ',
     MENU: {
         HOME: 'Home',
         FEATURES: 'Features',
@@ -210,6 +211,11 @@ var translations_en = {
             QUESTION: 'Questions asked',
             ANSWERS: 'Answers',
             BADGES: 'Badges obtained'
+        },
+        UPDATED: 'User updated',
+        DELETE: {
+            CONFIRM: 'Do you really want to delete the user?',
+            CANCELLED: 'Delete cancelled'
         }
     },
     CREATED: 'Created :',

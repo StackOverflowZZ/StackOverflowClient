@@ -1,5 +1,5 @@
 app.controller("FeatureController",
-    function($scope, $route, $routeParams, $location, Feature) {
+    function($scope, $route, $translate, Feature) {
 
     // Get all questions for index.
     $scope.getFeatures = function() {
@@ -18,7 +18,7 @@ app.controller("FeatureController",
             $route.reload()
 
         }, function error(response) {
-            $scope.updateError = 'An error ' + response.status + ' occurred';
+            $scope.updateError = $translate.instant('ERROR') + response.status;
         });
     };
 });

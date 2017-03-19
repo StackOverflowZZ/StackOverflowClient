@@ -125,7 +125,7 @@ angular.module("ngLocale", [], ["$provide", function($provide) {
 }]);
 
 var translations_fr = {
-
+    ERROR: 'Une erreur est survenue. Code d\'erreur : ',
     MENU: {
         HOME: 'Accueil',
         FEATURES: 'Fonctionnalités',
@@ -193,6 +193,11 @@ var translations_fr = {
             QUESTION: 'Questions posées',
             ANSWERS: 'Réponses',
             BADGES: 'Badges obtenus'
+        },
+        UPDATED: 'Utiliseur mis à jour',
+        DELETE: {
+            CONFIRM: 'Voulez-vous vraiment supprimer cet utilisateur ?',
+            CANCELLED: 'Suppression annulée'
         }
     },
     CREATED: 'Créée :',

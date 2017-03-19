@@ -226,7 +226,13 @@ var translations_en = {
         ENABLED:'Enabled',
         DISABLED:'Disabled'
     },
-    ANSWER:{
-        EDITANSWER:'Edit answer'
+   ANSWER:{
+        EDITANSWER:'Edit answer',
+        DELETED: 'Answer deleted',
+        SEND:'Send'
+    },
+    COMMENT:{
+        DELETED: 'Comment deleted',
+        SEND:'Send'
     }
 };

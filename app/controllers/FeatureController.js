@@ -4,6 +4,7 @@ app.controller("FeatureController",
     $scope.toggleFeature = function(feature) {
 
         feature.enable = !feature.enable;
+        $scope.features[feature.name] = feature.enable
         // Do the update
         Feature.update({featureId: feature.id}, feature, function success() {
 

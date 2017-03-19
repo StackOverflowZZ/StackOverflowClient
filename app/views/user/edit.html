@@ -90,7 +90,7 @@
     </div>
 
     <!-- Questions -->
-    <div class="panel panel-info">
+    <div ng-if="features['Question']" class="panel panel-info">
         <div class="panel-heading">
             <h3>{{ 'USER.EDIT.QUESTION' | translate }}</h3>
         </div>
@@ -98,20 +98,20 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th class="text-center">Votes</th>
-                    <th class="text-center">Question</th>
-                    <th class="text-center">Tags</th>
+                    <th ng-if="features['Vote']" class="text-center">Votes</th>
+                    <th class="text-center">Questions</th>
+                    <th ng-if="features['Tag']" class="text-center">Tags</th>
                 </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="question in user.questions" class="text-center">
-                        <td>{{ question.vote }}</td>
+                        <td ng-if="features['Vote']">{{ question.vote }}</td>
                         <td>
                             <a href="/question/get/{{question.id}}">
                                 {{ question.title }}
                             </a>
                         </td>
-                        <td>
+                        <td ng-if="features['Tag']">
                             <a ng-repeat="tag in question.tags" href="/tag/show/{{tag.id}}">
                                 <div class="label label-default right-margin-10">
                                     {{ tags[tag.id].name }}
@@ -125,7 +125,7 @@
     </div>
 
     <!-- Answers -->
-    <div class="panel panel-info">
+    <div ng-if="features['Answer']" class="panel panel-info">
         <div class="panel-heading">
             <h3>{{ 'USER.EDIT.ANSWERS' | translate }}</h3>
         </div>
@@ -133,22 +133,22 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th class="text-center">Votes answers</th>
-                    <th class="text-center">Votes question</th>
-                    <th class="text-center">Question</th>
-                    <th class="text-center">Tags</th>
+                    <th ng-if="features['Vote']" class="text-center">Votes answers</th>
+                    <th ng-if="features['Vote'] && features['Question']" class="text-center">Votes question</th>
+                    <th ng-if="features['Question']" class="text-center">Question</th>
+                    <th ng-if="features['Tag']" class="text-center">Tags</th>
                 </tr>
                 </thead>
                 <tbody>
                     <tr class="text-center" ng-repeat="answer in user.answers">
-                        <td>{{ answer.vote }}</td>
-                        <td>{{ answer.question.vote }}</td>
-                        <td>
+                        <td ng-if="features['Vote']" >{{ answer.vote }}</td>
+                        <td ng-if="features['Vote'] && features['Question']" >{{ answer.question.vote }}</td>
+                        <td ng-if="features['Question']">
                             <a href="/question/get/{{ answer.question.id }}">
                                 {{ answer.question.title }}
                             </a>
                         </td>
-                        <td>
+                        <td ng-if="features['Tag']" >
                             <a ng-repeat="tag in answer.question.tags" href="/tag/show/{{tag.id}}">
                                 <div class="label label-default right-margin-10">
                                     {{ tags[tag.id].name }}
@@ -163,7 +163,7 @@
     </div>
 
     <!-- Badges -->
-    <div class="panel panel-info">
+    <div ng-if="features['Badge']"  class="panel panel-info">
         <div class="panel-heading">
             <h3>{{ 'USER.EDIT.BADGES' | translate }}</h3>
         </div>

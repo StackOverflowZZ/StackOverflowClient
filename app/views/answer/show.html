@@ -35,7 +35,7 @@
             </form>
         </div>
     </div>
-     <div class="text-right">
+     <div ng-if="$parent.features['User']" class="text-right">
         <a href="/user/edit">{{answer.user.username}}</a>
         <span class="badge">{{answer.user.reputation}}</span><br />
         {{ 'CREATED' | translate }} {{ answer.created | date:"dd-MM-yyyy HH:mm:ss" }}<br />

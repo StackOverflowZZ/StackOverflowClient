@@ -75,7 +75,7 @@
                     </li>
                 </ul>
                 <!-- Login part -->
-                <div class="nav navbar-nav navbar-right">
+                <div ng-if="features['User']" class="nav navbar-nav navbar-right">
                     <div ng-if="session">
                         <a class="navbar-brand" href="/user/edit/{{session.id}}">{{session.username}}</a>
                         <a class="navbar-brand" href="/" ng-controller="LoginController" ng-click="logout()">{{ 'MENU.USER.SIGNOUT' | translate }}</a>

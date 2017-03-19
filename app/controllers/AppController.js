@@ -1,5 +1,9 @@
 app.controller('AppController', function ($scope, $timeout, Feature) {
 
+    $scope.$on('$viewContentLoaded', function() {
+        $scope.init()
+    });
+
     $scope.setUser = function (user, isAdmin) {
         $scope.session = user;
         $scope.isAdmin = isAdmin;
@@ -21,6 +25,4 @@ app.controller('AppController', function ($scope, $timeout, Feature) {
             $scope.features = features
         });
     }
-
-    $scope.init();
 });

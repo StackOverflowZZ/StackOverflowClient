@@ -1,6 +1,6 @@
 <div class="editable_post_block answer_edition">
     <div class="row">
-        <div class="col-xs-1">
+        <div ng-if="$parent.features['Vote']" class="col-xs-1">
             <!-- Part on the right for voting -->
             <form form ng-controller="AnswerController" ng-submit="upVote(answer)">
                 <h3 style="margin : 0px" class="text-center">
@@ -45,7 +45,7 @@
     </div>
 
     <!-- Comments -->
-    <div class="comments">
+    <div ng-if="$parent.features['Comment']" class="comments">
         <div ng-repeat="comment in answer.comments">
             <tr>
                 <td>
@@ -54,19 +54,20 @@
             </tr>
             <hr />
         </div>
-    </div>
+    
 
-    <form ng-controller="CommentController" ng-submit="createComment(comment,answer.id,null)" autocomplete="off">
-        <div class="row top-margin-50">
-            <textarea type=text ng-model="comment.text" class="big-textarea add-comment" rows="10" autocomplete="off"
-                        placeholder="Add a new comment..."></textarea>
-        </div>
-        <div class="text-center top-margin-50">
-            <button type="submit" class="btn btn-success add-comment">
-                <span class="glyphicon glyphicon-plus"></span>
-            </button>
-        </div>
-    </form>
+        <form ng-controller="CommentController" ng-submit="createComment(comment,answer.id,null)" autocomplete="off">
+            <div class="row top-margin-50">
+                <textarea type=text ng-model="comment.text" class="big-textarea add-comment" rows="10" autocomplete="off"
+                            placeholder="Add a new comment..."></textarea>
+            </div>
+            <div class="text-center top-margin-50">
+                <button type="submit" class="btn btn-success add-comment">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </button>
+            </div>
+        </form>
+    </div>
 
     <div ng-if="$parent.session.id == answer.user.id || $parent.isAdmin" class="text-center top-margin-25 row">
         <!-- Edit area -->

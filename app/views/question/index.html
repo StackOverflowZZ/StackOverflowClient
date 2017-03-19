@@ -17,7 +17,7 @@
         </a>
     </div>
 
-    <div>
+    <div ng-if="features['Question']">
         <table class="table table-striped">
             <tbody>
                 <tr ng-repeat="q in questions">
@@ -34,7 +34,7 @@
                     <td class="text-center">
                         <h4><a href="/question/get/{{q.id}}">{{q.title}}</a></h4>
                     </td>
-                    <td class="text-center">
+                    <td ng-if="features['Tag']" class="text-center">
                         <h4 style="display:inline-block;" ng-repeat="tag in q.tags">
                             <a controller="tag" action="show" id="${tag.id}">
                                 <div class="label label-default right-margin-10">

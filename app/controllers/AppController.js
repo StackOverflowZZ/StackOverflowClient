@@ -1,4 +1,4 @@
-app.controller('AppController', function ($scope, $timeout) {
+app.controller('AppController', function ($scope, $timeout, Feature) {
 
     $scope.setUser = function (user, isAdmin) {
         $scope.session = user;
@@ -13,5 +13,14 @@ app.controller('AppController', function ($scope, $timeout) {
         }, 5000);
     }
 
+    $scope.init = function(){
+        Feature.getAll(function(features) {
+            features.forEach(function(f, index){
+                features[f.name]=f.enable
+            })
+            $scope.features = features
+        });
+    }
 
+    $scope.init();
 });

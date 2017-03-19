@@ -1,13 +1,6 @@
 app.controller("FeatureController",
     function($scope, $route, $translate, Feature) {
 
-    // Get all questions for index.
-    $scope.getFeatures = function() {
-        Feature.getAll(function(features) {
-            $scope.features = features;
-        });
-    };
-
     $scope.toggleFeature = function(feature) {
 
         feature.enable = !feature.enable
